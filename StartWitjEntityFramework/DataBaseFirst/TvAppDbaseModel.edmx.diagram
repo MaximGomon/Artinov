@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79bc74a55a1a4493bfb7e6a6d320fb22" Name="Diagram1" ZoomLevel="119">
+        <EntityTypeShape EntityType="TvAppDBaseModel.Accounts" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.AdditionalServices" Width="1.5" PointX="13.125" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.Channels" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.OrderChannels" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.Orders" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.OrderServices" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.Payments" Width="1.5" PointX="11" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.TvShows" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.TypeConnects" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.UserAddresses" Width="1.5" PointX="10.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.UserEmails" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.UserPhones" Width="1.5" PointX="12.875" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.Users" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.UserSchedules" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TvAppDBaseModel.UserTypes" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_Accounts_dbo_Users_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_OrderServices_dbo_AdditionalServices_AdditionalService_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_OrderChannels_dbo_Channels_Channel_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_TvShows_dbo_Channels_Channel_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_OrderChannels_dbo_Orders_Order_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_Orders_dbo_Users_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_OrderServices_dbo_Orders_Order_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_Payments_dbo_Orders_Order_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_UserSchedules_dbo_TvShows_TvShow_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_UserAddresses_dbo_TypeConnects_TypeConnect_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_UserEmails_dbo_TypeConnects_TypeConnect_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_UserPhones_dbo_TypeConnects_TypeConnect_Id" ManuallyRouted="true" >
+          <ConnectorPoint PointX="2.25" PointY="10.0000025" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="10.0000025" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="10.0000025" />
+          <ConnectorPoint PointX="5.88257763" PointY="10.0000025" />
+          <ConnectorPoint PointX="5.88257763" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="9.4244804166666665" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="9.5911470833333343" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="10.510414166666665" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="10.677080833333333" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="12.072916666666666" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="12.239583333333334" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="13.257811" PointY="10.252292165421673" />
+          <ConnectorPoint PointX="13.257811" PointY="11.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_UserAddresses_dbo_Users_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_UserEmails_dbo_Users_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_UserPhones_dbo_Users_User_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_Users_dbo_UserTypes_UserType_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="TvAppDBaseModel.FK_dbo_UserSchedules_dbo_Users_User_Id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,5 @@
+D:\Work\Artinov\EnumExample\EnumExample\bin\Debug\EnumExample.exe.config
+D:\Work\Artinov\EnumExample\EnumExample\bin\Debug\EnumExample.exe
+D:\Work\Artinov\EnumExample\EnumExample\bin\Debug\EnumExample.pdb
+D:\Work\Artinov\EnumExample\EnumExample\obj\Debug\EnumExample.exe
+D:\Work\Artinov\EnumExample\EnumExample\obj\Debug\EnumExample.pdb

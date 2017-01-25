@@ -1,0 +1,6 @@
+D:\Work\Artinov\FirstProject\FirstProject\bin\Debug\FirstProject.exe.config
+D:\Work\Artinov\FirstProject\FirstProject\bin\Debug\FirstProject.exe
+D:\Work\Artinov\FirstProject\FirstProject\bin\Debug\FirstProject.pdb
+D:\Work\Artinov\FirstProject\FirstProject\obj\Debug\FirstProject.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\FirstProject\FirstProject\obj\Debug\FirstProject.exe
+D:\Work\Artinov\FirstProject\FirstProject\obj\Debug\FirstProject.pdb

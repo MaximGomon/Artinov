@@ -1,0 +1,6 @@
+D:\Work\Artinov\WorkWithDirectory\WorkWithDirectory\bin\Debug\WorkWithDirectory.exe.config
+D:\Work\Artinov\WorkWithDirectory\WorkWithDirectory\bin\Debug\WorkWithDirectory.exe
+D:\Work\Artinov\WorkWithDirectory\WorkWithDirectory\bin\Debug\WorkWithDirectory.pdb
+D:\Work\Artinov\WorkWithDirectory\WorkWithDirectory\obj\Debug\WorkWithDirectory.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\WorkWithDirectory\WorkWithDirectory\obj\Debug\WorkWithDirectory.exe
+D:\Work\Artinov\WorkWithDirectory\WorkWithDirectory\obj\Debug\WorkWithDirectory.pdb

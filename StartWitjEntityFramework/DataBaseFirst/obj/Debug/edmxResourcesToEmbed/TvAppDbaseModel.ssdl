@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TvAppDBaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Balance" Type="float" Nullable="false" />
+    <Property Name="IsActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+    <Property Name="User_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="AdditionalServices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="IsAgeLimit" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Channels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="IsAgeLimit" Type="bit" Nullable="false" />
+    <Property Name="OriginalId" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="OrderChannels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Channel_Id" Type="int" Nullable="false" />
+    <Property Name="Order_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateOrder" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="FromDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="DueDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TotalPrice" Type="float" Nullable="false" />
+    <Property Name="IsPaid" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderServices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdditionalService_Id" Type="int" Nullable="false" />
+    <Property Name="Order_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Summ" Type="float" Nullable="false" />
+    <Property Name="Order_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TvShows">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="IsAgeLimit" Type="bit" Nullable="false" />
+    <Property Name="CodeOriginalChannel" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+    <Property Name="Channel_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeConnects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameType" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserAddresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+    <Property Name="TypeConnect_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserEmails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+    <Property Name="TypeConnect_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPhones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+    <Property Name="TypeConnect_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsAllowAdultContent" Type="bit" Nullable="false" />
+    <Property Name="IsActiveStatus" Type="bit" Nullable="false" />
+    <Property Name="UserType_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSchedules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DueDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TvShow_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AccessToData" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_dbo_Accounts_dbo_Users_User_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderChannels_dbo_Channels_Channel_Id">
+    <End Role="Channels" Type="Self.Channels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderChannels" Type="Self.OrderChannels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Channels">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderChannels">
+        <PropertyRef Name="Channel_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderChannels_dbo_Orders_Order_Id">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderChannels" Type="Self.OrderChannels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderChannels">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Orders_dbo_Users_User_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderServices_dbo_AdditionalServices_AdditionalService_Id">
+    <End Role="AdditionalServices" Type="Self.AdditionalServices" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderServices" Type="Self.OrderServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdditionalServices">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderServices">
+        <PropertyRef Name="AdditionalService_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_OrderServices_dbo_Orders_Order_Id">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderServices" Type="Self.OrderServices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderServices">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Payments_dbo_Orders_Order_Id">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="Order_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TvShows_dbo_Channels_Channel_Id">
+    <End Role="Channels" Type="Self.Channels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TvShows" Type="Self.TvShows" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Channels">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TvShows">
+        <PropertyRef Name="Channel_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserAddresses_dbo_TypeConnects_TypeConnect_Id">
+    <End Role="TypeConnects" Type="Self.TypeConnects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserAddresses" Type="Self.UserAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeConnects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAddresses">
+        <PropertyRef Name="TypeConnect_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserAddresses_dbo_Users_User_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserAddresses" Type="Self.UserAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAddresses">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserEmails_dbo_TypeConnects_TypeConnect_Id">
+    <End Role="TypeConnects" Type="Self.TypeConnects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserEmails" Type="Self.UserEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeConnects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserEmails">
+        <PropertyRef Name="TypeConnect_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserEmails_dbo_Users_User_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserEmails" Type="Self.UserEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserEmails">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPhones_dbo_TypeConnects_TypeConnect_Id">
+    <End Role="TypeConnects" Type="Self.TypeConnects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPhones" Type="Self.UserPhones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeConnects">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPhones">
+        <PropertyRef Name="TypeConnect_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserPhones_dbo_Users_User_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserPhones" Type="Self.UserPhones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPhones">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Users_dbo_UserTypes_UserType_Id">
+    <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserSchedules_dbo_TvShows_TvShow_Id">
+    <End Role="TvShows" Type="Self.TvShows" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserSchedules" Type="Self.UserSchedules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TvShows">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSchedules">
+        <PropertyRef Name="TvShow_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserSchedules_dbo_Users_User_Id">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserSchedules" Type="Self.UserSchedules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSchedules">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TvAppDBaseModelStoreContainer">
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdditionalServices" EntityType="Self.AdditionalServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Channels" EntityType="Self.Channels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderChannels" EntityType="Self.OrderChannels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderServices" EntityType="Self.OrderServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TvShows" EntityType="Self.TvShows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeConnects" EntityType="Self.TypeConnects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAddresses" EntityType="Self.UserAddresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserEmails" EntityType="Self.UserEmails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPhones" EntityType="Self.UserPhones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSchedules" EntityType="Self.UserSchedules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Accounts_dbo_Users_User_Id" Association="Self.FK_dbo_Accounts_dbo_Users_User_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderChannels_dbo_Channels_Channel_Id" Association="Self.FK_dbo_OrderChannels_dbo_Channels_Channel_Id">
+      <End Role="Channels" EntitySet="Channels" />
+      <End Role="OrderChannels" EntitySet="OrderChannels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderChannels_dbo_Orders_Order_Id" Association="Self.FK_dbo_OrderChannels_dbo_Orders_Order_Id">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderChannels" EntitySet="OrderChannels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Orders_dbo_Users_User_Id" Association="Self.FK_dbo_Orders_dbo_Users_User_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderServices_dbo_AdditionalServices_AdditionalService_Id" Association="Self.FK_dbo_OrderServices_dbo_AdditionalServices_AdditionalService_Id">
+      <End Role="AdditionalServices" EntitySet="AdditionalServices" />
+      <End Role="OrderServices" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_OrderServices_dbo_Orders_Order_Id" Association="Self.FK_dbo_OrderServices_dbo_Orders_Order_Id">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderServices" EntitySet="OrderServices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Payments_dbo_Orders_Order_Id" Association="Self.FK_dbo_Payments_dbo_Orders_Order_Id">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TvShows_dbo_Channels_Channel_Id" Association="Self.FK_dbo_TvShows_dbo_Channels_Channel_Id">
+      <End Role="Channels" EntitySet="Channels" />
+      <End Role="TvShows" EntitySet="TvShows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserAddresses_dbo_TypeConnects_TypeConnect_Id" Association="Self.FK_dbo_UserAddresses_dbo_TypeConnects_TypeConnect_Id">
+      <End Role="TypeConnects" EntitySet="TypeConnects" />
+      <End Role="UserAddresses" EntitySet="UserAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserAddresses_dbo_Users_User_Id" Association="Self.FK_dbo_UserAddresses_dbo_Users_User_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserAddresses" EntitySet="UserAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserEmails_dbo_TypeConnects_TypeConnect_Id" Association="Self.FK_dbo_UserEmails_dbo_TypeConnects_TypeConnect_Id">
+      <End Role="TypeConnects" EntitySet="TypeConnects" />
+      <End Role="UserEmails" EntitySet="UserEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserEmails_dbo_Users_User_Id" Association="Self.FK_dbo_UserEmails_dbo_Users_User_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserEmails" EntitySet="UserEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPhones_dbo_TypeConnects_TypeConnect_Id" Association="Self.FK_dbo_UserPhones_dbo_TypeConnects_TypeConnect_Id">
+      <End Role="TypeConnects" EntitySet="TypeConnects" />
+      <End Role="UserPhones" EntitySet="UserPhones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserPhones_dbo_Users_User_Id" Association="Self.FK_dbo_UserPhones_dbo_Users_User_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserPhones" EntitySet="UserPhones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Users_dbo_UserTypes_UserType_Id" Association="Self.FK_dbo_Users_dbo_UserTypes_UserType_Id">
+      <End Role="UserTypes" EntitySet="UserTypes" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserSchedules_dbo_TvShows_TvShow_Id" Association="Self.FK_dbo_UserSchedules_dbo_TvShows_TvShow_Id">
+      <End Role="TvShows" EntitySet="TvShows" />
+      <End Role="UserSchedules" EntitySet="UserSchedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserSchedules_dbo_Users_User_Id" Association="Self.FK_dbo_UserSchedules_dbo_Users_User_Id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserSchedules" EntitySet="UserSchedules" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,6 @@
+D:\Work\Artinov\StartWithWcf\StartWithWcf\bin\Debug\Client.exe.config
+D:\Work\Artinov\StartWithWcf\StartWithWcf\bin\Debug\Client.exe
+D:\Work\Artinov\StartWithWcf\StartWithWcf\bin\Debug\Client.pdb
+D:\Work\Artinov\StartWithWcf\StartWithWcf\obj\Debug\Client.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\StartWithWcf\StartWithWcf\obj\Debug\Client.exe
+D:\Work\Artinov\StartWithWcf\StartWithWcf\obj\Debug\Client.pdb

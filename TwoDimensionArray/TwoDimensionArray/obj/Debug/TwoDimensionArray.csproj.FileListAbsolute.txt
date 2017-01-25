@@ -1,0 +1,6 @@
+D:\Work\Artinov\TwoDimensionArray\TwoDimensionArray\bin\Debug\TwoDimensionArray.exe.config
+D:\Work\Artinov\TwoDimensionArray\TwoDimensionArray\bin\Debug\TwoDimensionArray.exe
+D:\Work\Artinov\TwoDimensionArray\TwoDimensionArray\bin\Debug\TwoDimensionArray.pdb
+D:\Work\Artinov\TwoDimensionArray\TwoDimensionArray\obj\Debug\TwoDimensionArray.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\TwoDimensionArray\TwoDimensionArray\obj\Debug\TwoDimensionArray.exe
+D:\Work\Artinov\TwoDimensionArray\TwoDimensionArray\obj\Debug\TwoDimensionArray.pdb

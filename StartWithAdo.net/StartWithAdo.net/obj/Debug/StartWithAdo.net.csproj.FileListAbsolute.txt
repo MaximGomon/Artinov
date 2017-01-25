@@ -1,0 +1,6 @@
+D:\Work\Artinov\StartWithAdo.net\StartWithAdo.net\bin\Debug\StartWithAdo.net.exe.config
+D:\Work\Artinov\StartWithAdo.net\StartWithAdo.net\bin\Debug\StartWithAdo.net.exe
+D:\Work\Artinov\StartWithAdo.net\StartWithAdo.net\bin\Debug\StartWithAdo.net.pdb
+D:\Work\Artinov\StartWithAdo.net\StartWithAdo.net\obj\Debug\StartWithAdo.net.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\StartWithAdo.net\StartWithAdo.net\obj\Debug\StartWithAdo.net.exe
+D:\Work\Artinov\StartWithAdo.net\StartWithAdo.net\obj\Debug\StartWithAdo.net.pdb

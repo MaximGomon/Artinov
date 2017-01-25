@@ -1,0 +1,17 @@
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\bin\Debug\StartWithEntityFramework.exe.config
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\bin\Debug\StartWithEntityFramework.exe
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\bin\Debug\StartWithEntityFramework.pdb
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\bin\Debug\EntityFramework.dll
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\bin\Debug\EntityFramework.xml
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.exe
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.pdb
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.Migrations.Init.resources
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.csproj.GenerateResource.Cache
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.Migrations.AddNewFieldToPeople.resources
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.Migrations.AddProfessionTable.resources
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.Migrations.AddDataAnnotation.resources
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.Migrations.AddRequiredFields.resources
+D:\Work\Artinov\StartWitjEntityFramework\StartWitjEntityFramework\obj\Debug\StartWithEntityFramework.Migrations.AddUniqueConstraint.resources

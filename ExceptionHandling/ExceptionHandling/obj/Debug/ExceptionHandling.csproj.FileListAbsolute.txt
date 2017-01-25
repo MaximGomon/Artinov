@@ -1,0 +1,5 @@
+D:\Work\Artinov\ExceptionHandling\ExceptionHandling\bin\Debug\ExceptionHandling.exe.config
+D:\Work\Artinov\ExceptionHandling\ExceptionHandling\bin\Debug\ExceptionHandling.exe
+D:\Work\Artinov\ExceptionHandling\ExceptionHandling\bin\Debug\ExceptionHandling.pdb
+D:\Work\Artinov\ExceptionHandling\ExceptionHandling\obj\Debug\ExceptionHandling.exe
+D:\Work\Artinov\ExceptionHandling\ExceptionHandling\obj\Debug\ExceptionHandling.pdb

@@ -1,0 +1,6 @@
+D:\Work\Artinov\FirstConsoleApplication\FirstConsoleApplication\bin\Debug\FirstConsoleApplication.exe.config
+D:\Work\Artinov\FirstConsoleApplication\FirstConsoleApplication\bin\Debug\FirstConsoleApplication.exe
+D:\Work\Artinov\FirstConsoleApplication\FirstConsoleApplication\bin\Debug\FirstConsoleApplication.pdb
+D:\Work\Artinov\FirstConsoleApplication\FirstConsoleApplication\obj\Debug\FirstConsoleApplication.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\FirstConsoleApplication\FirstConsoleApplication\obj\Debug\FirstConsoleApplication.exe
+D:\Work\Artinov\FirstConsoleApplication\FirstConsoleApplication\obj\Debug\FirstConsoleApplication.pdb

@@ -1,0 +1,6 @@
+D:\Work\Artinov\StartWithClasses\StartWithClasses\bin\Debug\StartWithClasses.exe.config
+D:\Work\Artinov\StartWithClasses\StartWithClasses\bin\Debug\StartWithClasses.exe
+D:\Work\Artinov\StartWithClasses\StartWithClasses\bin\Debug\StartWithClasses.pdb
+D:\Work\Artinov\StartWithClasses\StartWithClasses\obj\Debug\StartWithClasses.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\StartWithClasses\StartWithClasses\obj\Debug\StartWithClasses.exe
+D:\Work\Artinov\StartWithClasses\StartWithClasses\obj\Debug\StartWithClasses.pdb

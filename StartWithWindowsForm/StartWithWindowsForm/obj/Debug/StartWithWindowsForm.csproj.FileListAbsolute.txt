@@ -1,0 +1,10 @@
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\StartWithWindowsForm.exe.config
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\StartWithWindowsForm.exe
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\StartWithWindowsForm.pdb
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.Properties.Resources.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.csproj.GenerateResource.Cache
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.exe
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.pdb
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.MainForm.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.NameForm.resources

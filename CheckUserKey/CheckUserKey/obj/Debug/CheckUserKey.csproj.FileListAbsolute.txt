@@ -1,0 +1,5 @@
+D:\Work\Artinov\CheckUserKey\CheckUserKey\bin\Debug\CheckUserKey.exe.config
+D:\Work\Artinov\CheckUserKey\CheckUserKey\bin\Debug\CheckUserKey.exe
+D:\Work\Artinov\CheckUserKey\CheckUserKey\bin\Debug\CheckUserKey.pdb
+D:\Work\Artinov\CheckUserKey\CheckUserKey\obj\Debug\CheckUserKey.exe
+D:\Work\Artinov\CheckUserKey\CheckUserKey\obj\Debug\CheckUserKey.pdb

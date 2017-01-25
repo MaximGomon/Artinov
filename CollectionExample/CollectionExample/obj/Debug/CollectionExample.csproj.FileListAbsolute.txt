@@ -1,0 +1,6 @@
+D:\Work\Artinov\CollectionExample\CollectionExample\bin\Debug\CollectionExample.exe.config
+D:\Work\Artinov\CollectionExample\CollectionExample\bin\Debug\CollectionExample.exe
+D:\Work\Artinov\CollectionExample\CollectionExample\bin\Debug\CollectionExample.pdb
+D:\Work\Artinov\CollectionExample\CollectionExample\obj\Debug\CollectionExample.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\CollectionExample\CollectionExample\obj\Debug\CollectionExample.exe
+D:\Work\Artinov\CollectionExample\CollectionExample\obj\Debug\CollectionExample.pdb

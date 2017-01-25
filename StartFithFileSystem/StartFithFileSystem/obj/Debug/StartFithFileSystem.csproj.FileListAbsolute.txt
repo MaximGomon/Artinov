@@ -1,0 +1,6 @@
+D:\Work\Artinov\StartFithFileSystem\StartFithFileSystem\bin\Debug\StartFithFileSystem.exe.config
+D:\Work\Artinov\StartFithFileSystem\StartFithFileSystem\bin\Debug\StartFithFileSystem.exe
+D:\Work\Artinov\StartFithFileSystem\StartFithFileSystem\bin\Debug\StartFithFileSystem.pdb
+D:\Work\Artinov\StartFithFileSystem\StartFithFileSystem\obj\Debug\StartFithFileSystem.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\StartFithFileSystem\StartFithFileSystem\obj\Debug\StartFithFileSystem.exe
+D:\Work\Artinov\StartFithFileSystem\StartFithFileSystem\obj\Debug\StartFithFileSystem.pdb

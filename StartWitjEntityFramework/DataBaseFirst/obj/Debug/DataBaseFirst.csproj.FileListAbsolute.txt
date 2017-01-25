@@ -1,0 +1,10 @@
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\bin\Debug\DataBaseFirst.exe.config
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\bin\Debug\DataBaseFirst.exe
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\bin\Debug\DataBaseFirst.pdb
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\bin\Debug\EntityFramework.dll
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\bin\Debug\EntityFramework.xml
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\obj\Debug\DataBaseFirst.csprojResolveAssemblyReference.cache
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\obj\Debug\DataBaseFirst.exe
+D:\Work\Artinov\StartWitjEntityFramework\DataBaseFirst\obj\Debug\DataBaseFirst.pdb

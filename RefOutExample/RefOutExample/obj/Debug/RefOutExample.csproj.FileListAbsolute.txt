@@ -1,0 +1,5 @@
+D:\Work\Artinov\RefOutExample\RefOutExample\bin\Debug\RefOutExample.exe.config
+D:\Work\Artinov\RefOutExample\RefOutExample\bin\Debug\RefOutExample.exe
+D:\Work\Artinov\RefOutExample\RefOutExample\bin\Debug\RefOutExample.pdb
+D:\Work\Artinov\RefOutExample\RefOutExample\obj\Debug\RefOutExample.exe
+D:\Work\Artinov\RefOutExample\RefOutExample\obj\Debug\RefOutExample.pdb

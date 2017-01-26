@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System.Windows.Forms;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace StartWithWindowsForm
 {
@@ -15,38 +9,58 @@ namespace StartWithWindowsForm
         public MainForm()
         {
             InitializeComponent();
+            FillListView();
         }
 
-        private void btExit_Click(object sender, EventArgs e)
+        private void FillListView()
+        {
+            lvAnimals.Items.Clear(); //Clear all existing items in ListView
+            int animalsCount = AnimalStorage.Animals.Count;
+
+            for (int i = 0; i < animalsCount; i++)
+            {
+                var animal = AnimalStorage.Animals[i];
+
+                ListViewItem item = new ListViewItem(i.ToString());
+                item.SubItems.Add(animal.Name);
+                item.SubItems.Add(animal.Size.ToString());
+                item.SubItems.Add(animal.Id.ToString());
+
+                lvAnimals.Items.Add(item);//Add new item to ListView
+            }
+        }
+
+        private void createAnimalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateAnimal createForm = new CreateAnimal();//Show form for create 
+                                                         //new animal
+            if (createForm.ShowDialog() == DialogResult.OK)
+            {
+                //if animal created successed refill ListView
+                FillListView();
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void tbName_TextChanged(object sender, EventArgs e)
+        private void editAnimalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (tbName.Text.Length > 5)
+            int selectedAnimalCount = lvAnimals.SelectedItems.Count;
+            if (selectedAnimalCount != 0)
             {
-                Font ft = tbName.Font;
-                Font newFont = new Font(ft.FontFamily, ft.Size, FontStyle.Underline);
-                tbName.Font = newFont;
-                tbName.ForeColor = Color.Red;
-            }
-            else
-            {
-                Font ft = tbName.Font;
-                Font newFont = new Font(ft.FontFamily, ft.Size, FontStyle.Regular);
-                tbName.Font = newFont;
-                tbName.ForeColor = Color.Black;
-            }
-        }
+                ListViewItem selectedAnimal = lvAnimals.SelectedItems[0];
+                Guid selectedId = Guid.Parse(selectedAnimal.SubItems[3].Text);
+                Animal animal = AnimalStorage.Animals.First(x => x.Id == selectedId);
 
-        private void btShow_Click(object sender, EventArgs e)
-        {
-            NameForm fr = new NameForm(tbName.Text);
-            if (fr.ShowDialog() == DialogResult.Cancel)
-            {
-                MessageBox.Show("You close name form", "Information",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CreateAnimal editForm = new CreateAnimal(animal);
+
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    FillListView();
+                }
             }
         }
     }

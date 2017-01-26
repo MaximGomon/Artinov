@@ -29,90 +29,233 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btExit = new System.Windows.Forms.Button();
-            this.lbName = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
             this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btShow = new System.Windows.Forms.Button();
+            this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createAnimalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAnimalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editAnimalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.importFromcsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.expotrTocsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scMain = new System.Windows.Forms.SplitContainer();
+            this.lvAnimals = new System.Windows.Forms.ListView();
+            this.colNumberHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSizeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mainMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
+            this.scMain.Panel2.SuspendLayout();
+            this.scMain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btExit
-            // 
-            this.btExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btExit.Location = new System.Drawing.Point(373, 81);
-            this.btExit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btExit.Name = "btExit";
-            this.btExit.Size = new System.Drawing.Size(175, 46);
-            this.btExit.TabIndex = 0;
-            this.btExit.Text = "Exit";
-            this.mainToolTip.SetToolTip(this.btExit, "Press this button to close application");
-            this.btExit.UseVisualStyleBackColor = true;
-            this.btExit.Click += new System.EventHandler(this.btExit_Click);
-            // 
-            // lbName
-            // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(39, 39);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(78, 29);
-            this.lbName.TabIndex = 1;
-            this.lbName.Text = "Name";
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(123, 39);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(425, 34);
-            this.tbName.TabIndex = 2;
-            this.mainToolTip.SetToolTip(this.tbName, "Write your name here");
-            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // mainToolTip
             // 
             this.mainToolTip.BackColor = System.Drawing.SystemColors.ControlLight;
             this.mainToolTip.ForeColor = System.Drawing.SystemColors.Highlight;
             // 
-            // btShow
+            // mainMenuStrip
             // 
-            this.btShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btShow.Location = new System.Drawing.Point(188, 81);
-            this.btShow.Margin = new System.Windows.Forms.Padding(5);
-            this.btShow.Name = "btShow";
-            this.btShow.Size = new System.Drawing.Size(175, 46);
-            this.btShow.TabIndex = 3;
-            this.btShow.Text = "Show name";
-            this.mainToolTip.SetToolTip(this.btShow, "Press this button to show name");
-            this.btShow.UseVisualStyleBackColor = true;
-            this.btShow.Click += new System.EventHandler(this.btShow_Click);
+            this.mainMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.windowToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuStrip.Name = "mainMenuStrip";
+            this.mainMenuStrip.Size = new System.Drawing.Size(458, 28);
+            this.mainMenuStrip.TabIndex = 4;
+            this.mainMenuStrip.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createAnimalToolStripMenuItem,
+            this.deleteAnimalToolStripMenuItem,
+            this.editAnimalToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.importFromcsvToolStripMenuItem,
+            this.expotrTocsvToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // createAnimalToolStripMenuItem
+            // 
+            this.createAnimalToolStripMenuItem.Name = "createAnimalToolStripMenuItem";
+            this.createAnimalToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.createAnimalToolStripMenuItem.Text = "Create animal";
+            this.createAnimalToolStripMenuItem.Click += new System.EventHandler(this.createAnimalToolStripMenuItem_Click);
+            // 
+            // deleteAnimalToolStripMenuItem
+            // 
+            this.deleteAnimalToolStripMenuItem.Name = "deleteAnimalToolStripMenuItem";
+            this.deleteAnimalToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.deleteAnimalToolStripMenuItem.Text = "Delete animal";
+            // 
+            // editAnimalToolStripMenuItem
+            // 
+            this.editAnimalToolStripMenuItem.Name = "editAnimalToolStripMenuItem";
+            this.editAnimalToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.editAnimalToolStripMenuItem.Text = "Edit animal";
+            this.editAnimalToolStripMenuItem.Click += new System.EventHandler(this.editAnimalToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(195, 6);
+            // 
+            // importFromcsvToolStripMenuItem
+            // 
+            this.importFromcsvToolStripMenuItem.Name = "importFromcsvToolStripMenuItem";
+            this.importFromcsvToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.importFromcsvToolStripMenuItem.Text = "Import from *.csv";
+            // 
+            // expotrTocsvToolStripMenuItem
+            // 
+            this.expotrTocsvToolStripMenuItem.Name = "expotrTocsvToolStripMenuItem";
+            this.expotrTocsvToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.expotrTocsvToolStripMenuItem.Text = "Expotr to *.csv";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(195, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(198, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // windowToolStripMenuItem
+            // 
+            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configurationToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.windowToolStripMenuItem.Text = "Window";
+            // 
+            // configurationToolStripMenuItem
+            // 
+            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
+            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.configurationToolStripMenuItem.Text = "Configuration";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // scMain
+            // 
+            this.scMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scMain.Location = new System.Drawing.Point(0, 28);
+            this.scMain.Name = "scMain";
+            this.scMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // scMain.Panel2
+            // 
+            this.scMain.Panel2.Controls.Add(this.lvAnimals);
+            this.scMain.Size = new System.Drawing.Size(458, 301);
+            this.scMain.SplitterDistance = 31;
+            this.scMain.TabIndex = 5;
+            // 
+            // lvAnimals
+            // 
+            this.lvAnimals.AllowColumnReorder = true;
+            this.lvAnimals.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colNumberHeader,
+            this.colNameHeader,
+            this.colSizeHeader});
+            this.lvAnimals.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvAnimals.FullRowSelect = true;
+            this.lvAnimals.GridLines = true;
+            this.lvAnimals.Location = new System.Drawing.Point(0, 0);
+            this.lvAnimals.MultiSelect = false;
+            this.lvAnimals.Name = "lvAnimals";
+            this.lvAnimals.Size = new System.Drawing.Size(458, 266);
+            this.lvAnimals.TabIndex = 0;
+            this.lvAnimals.UseCompatibleStateImageBehavior = false;
+            this.lvAnimals.View = System.Windows.Forms.View.Details;
+            // 
+            // colNumberHeader
+            // 
+            this.colNumberHeader.Text = "#";
+            this.colNumberHeader.Width = 50;
+            // 
+            // colNameHeader
+            // 
+            this.colNameHeader.Text = "Name";
+            this.colNameHeader.Width = 300;
+            // 
+            // colSizeHeader
+            // 
+            this.colSizeHeader.Text = "Size";
+            this.colSizeHeader.Width = 100;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 167);
-            this.Controls.Add(this.btShow);
-            this.Controls.Add(this.tbName);
-            this.Controls.Add(this.lbName);
-            this.Controls.Add(this.btExit);
+            this.ClientSize = new System.Drawing.Size(458, 329);
+            this.Controls.Add(this.scMain);
+            this.Controls.Add(this.mainMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MainMenuStrip = this.mainMenuStrip;
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "My first form";
+            this.Text = "Animals";
+            this.mainMenuStrip.ResumeLayout(false);
+            this.mainMenuStrip.PerformLayout();
+            this.scMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
+            this.scMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btExit;
-        private System.Windows.Forms.Label lbName;
-        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.ToolTip mainToolTip;
-        private System.Windows.Forms.Button btShow;
+        private System.Windows.Forms.MenuStrip mainMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createAnimalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteAnimalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editAnimalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem importFromcsvToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem expotrTocsvToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem windowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer scMain;
+        private System.Windows.Forms.ListView lvAnimals;
+        private System.Windows.Forms.ColumnHeader colNumberHeader;
+        private System.Windows.Forms.ColumnHeader colNameHeader;
+        private System.Windows.Forms.ColumnHeader colSizeHeader;
     }
 }
 

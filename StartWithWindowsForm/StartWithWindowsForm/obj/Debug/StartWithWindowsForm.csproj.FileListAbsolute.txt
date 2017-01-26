@@ -7,4 +7,4 @@ D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWin
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.exe
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.pdb
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.MainForm.resources
-D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.NameForm.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.CreateAnimal.resources

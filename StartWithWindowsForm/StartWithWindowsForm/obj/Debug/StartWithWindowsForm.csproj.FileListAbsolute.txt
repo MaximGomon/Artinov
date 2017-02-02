@@ -8,3 +8,15 @@ D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWin
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.pdb
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.MainForm.resources
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.CreateAnimal.resources
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\StartWithWindowsForm.exe.config
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.exe
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.pdb
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\StartWithWindowsForm.exe
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\StartWithWindowsForm.pdb
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.csprojResolveAssemblyReference.cache
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.MainForm.resources
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.CreateAnimal.resources
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.Properties.Resources.resources
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.csproj.GenerateResource.Cache
+C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.DeleteAnimalForm.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.DeleteAnimalForm.resources

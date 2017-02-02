@@ -49,6 +49,16 @@
     <Compile Include="Animal.cs" />
     <Compile Include="AnimalSize.cs" />
     <Compile Include="AnimalStorage.cs" />
+    <Compile Include="DeleteAnimalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteAnimalForm.Designer.cs">
+      <DependentUpon>DeleteAnimalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteAnimalForm.Functions.cs">
+      <DependentUpon>DeleteAnimalForm.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ElementState.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -64,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DeleteAnimalForm.resx">
+      <DependentUpon>DeleteAnimalForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,6 +16,7 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
+                _context.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -110,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 253);
+            this.ClientSize = new System.Drawing.Size(359, 253);
             this.ControlBox = false;
             this.Controls.Add(this.gbAnimalInfo);
             this.Controls.Add(this.btOk);

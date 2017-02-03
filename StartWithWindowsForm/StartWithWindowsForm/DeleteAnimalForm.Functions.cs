@@ -10,7 +10,7 @@ namespace StartWithWindowsForm
     {
         void ShowAllAnimals()
         {
-            foreach (var animal in AnimalStorage.Animals)
+            foreach (var animal in _context.Animals)
             {
                 AnimalsListBox.Items.Add(animal);
             }

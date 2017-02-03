@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,15 @@ namespace StartWithWindowsForm
     {
         private readonly Guid _animalId;
         private readonly ElementState _state;
+        private readonly AnimalsDbContext _context;
         public CreateAnimal(Animal item)
         {
+            _context = new AnimalsDbContext();
             InitializeComponent();
+            
             FillComboBox();
             tbName.Text = item.Name;
-            cbSize.SelectedItem = (object) item.Size;
+            cbSize.SelectedItem = (object)item.Size;
             _animalId = item.Id;
             _state = ElementState.Edit;
 
@@ -28,6 +32,7 @@ namespace StartWithWindowsForm
 
         public CreateAnimal()
         {
+            _context = new AnimalsDbContext();
             InitializeComponent();
             FillComboBox();
             _state = ElementState.New;
@@ -37,7 +42,7 @@ namespace StartWithWindowsForm
 
         private void FillComboBox()
         {
-            object[] elements = Enum.GetValues(typeof (AnimalSize)).Cast<object>().ToArray();
+            object[] elements = Enum.GetValues(typeof(AnimalSize)).Cast<object>().ToArray();
             cbSize.Items.AddRange(elements);
             cbSize.SelectedIndex = 0;
         }
@@ -46,18 +51,18 @@ namespace StartWithWindowsForm
         {
             if (this.DialogResult == DialogResult.OK)
             {
-                if(_state == ElementState.Edit)
+                var editedAnimal = _context.Animals.FirstOrDefault(x => x.Id == _animalId);
+
+                if (editedAnimal == null)
                 {
-                    var editedEnimalIndex = AnimalStorage.Animals.FindIndex(x => x.Id == _animalId);
-                    AnimalStorage.Animals.RemoveAt(editedEnimalIndex);
+                    editedAnimal = new Animal();
                 }
 
-                Animal item = new Animal
-                {
-                    Name = tbName.Text.Trim(),
-                    Size = (AnimalSize)cbSize.SelectedItem
-                };
-                AnimalStorage.Animals.Add(item);
+                editedAnimal.Name = tbName.Text.Trim();
+                editedAnimal.Size = (AnimalSize)cbSize.SelectedItem;
+
+                _context.Animals.AddOrUpdate(editedAnimal);
+                _context.SaveChanges();
             }
         }
     }

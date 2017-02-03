@@ -33,7 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,19 +55,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Animal.cs" />
+    <Compile Include="AnimalsDbContext.cs" />
     <Compile Include="AnimalSize.cs" />
-    <Compile Include="AnimalStorage.cs" />
-    <Compile Include="DeleteAnimalForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteAnimalForm.Designer.cs">
-      <DependentUpon>DeleteAnimalForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeleteAnimalForm.Functions.cs">
-      <DependentUpon>DeleteAnimalForm.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="ElementState.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -72,16 +77,24 @@
     <Compile Include="CreateAnimal.Designer.cs">
       <DependentUpon>CreateAnimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702021925178_Initial.cs" />
+    <Compile Include="Migrations\201702021925178_Initial.Designer.cs">
+      <DependentUpon>201702021925178_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DeleteAnimalForm.resx">
-      <DependentUpon>DeleteAnimalForm.cs</DependentUpon>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateAnimal.resx">
       <DependentUpon>CreateAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702021925178_Initial.resx">
+      <DependentUpon>201702021925178_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +105,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

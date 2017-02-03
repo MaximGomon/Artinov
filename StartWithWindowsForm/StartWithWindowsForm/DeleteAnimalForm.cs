@@ -12,8 +12,10 @@ namespace StartWithWindowsForm
 {
     public partial class DeleteAnimalForm : Form
     {
+        private readonly AnimalsDbContext _context;
         public DeleteAnimalForm()
         {
+            _context = new AnimalsDbContext();
             InitializeComponent();
             ShowAllAnimals();
         }

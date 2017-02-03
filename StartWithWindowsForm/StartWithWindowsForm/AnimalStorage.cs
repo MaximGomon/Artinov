@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace StartWithWindowsForm
 {
     public static class AnimalStorage
     {
+        private static readonly AnimalsDbContext _context;
         static AnimalStorage()
         {
-            Animals = new List<Animal>();
+            _context = new AnimalsDbContext();
+            Animals = _context.Animals;
         }
-        public static List<Animal> Animals { get; set; } 
+        public static IQueryable<Animal> Animals { get; set; } 
     }
 }

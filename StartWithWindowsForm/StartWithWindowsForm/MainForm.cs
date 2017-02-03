@@ -7,10 +7,13 @@ using System.Text;
 
 namespace StartWithWindowsForm
 {
-    public partial class MainForm : System.Windows.Forms.Form
+    public partial class MainForm : Form
     {
+        private readonly AnimalsDbContext _context;
         public MainForm()
         {
+            _context = new AnimalsDbContext();
+
             InitializeComponent();
             FillListView();
         }
@@ -23,16 +26,16 @@ namespace StartWithWindowsForm
         private void FillListView()
         {
             lvAnimals.Items.Clear(); //Clear all existing items in ListView
-            int animalsCount = AnimalStorage.Animals.Count;
+
+            List<Animal> animal = _context.Animals.ToList();
+            int animalsCount = animal.Count;
 
             for (int i = 0; i < animalsCount; i++)
             {
-                var animal = AnimalStorage.Animals[i];
-
                 ListViewItem item = new ListViewItem(i.ToString());
-                item.SubItems.Add(animal.Name);
-                item.SubItems.Add(animal.Size.ToString());
-                item.SubItems.Add(animal.Id.ToString());
+                item.SubItems.Add(animal[i].Name);
+                item.SubItems.Add(animal[i].Size.ToString());
+                item.SubItems.Add(animal[i].Id.ToString());
 
                 lvAnimals.Items.Add(item);//Add new item to ListView
             }
@@ -61,7 +64,7 @@ namespace StartWithWindowsForm
             {
                 ListViewItem selectedAnimal = lvAnimals.SelectedItems[0];
                 Guid selectedId = Guid.Parse(selectedAnimal.SubItems[3].Text);
-                Animal animal = AnimalStorage.Animals.First(x => x.Id == selectedId);
+                Animal animal = _context.Animals.First(x => x.Id == selectedId);
 
                 CreateAnimal editForm = new CreateAnimal(animal);
 
@@ -74,10 +77,10 @@ namespace StartWithWindowsForm
 
         private void deleteAnimalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int animalCount = AnimalStorage.Animals.Count;
-            if (animalCount != 0)
+            bool isAnimalExists = _context.Animals.Any();
+            if (isAnimalExists)
             {
-                int selectedAnimal = lvAnimals.Items.Count;
+                int selectedAnimal = lvAnimals.SelectedItems.Count;
                 if (selectedAnimal != 0)
                 {
                     ListViewItem selectedItem = lvAnimals.SelectedItems[0];
@@ -90,27 +93,28 @@ namespace StartWithWindowsForm
 
         private Animal GetAnimalById(Guid selectedId)
         {
-            return AnimalStorage.Animals.First(x => x.Id == selectedId);
+            return _context.Animals.First(x => x.Id == selectedId);
         }
 
         private void DeleteAnimal(Animal deletedAnimal)
         {
-            AnimalStorage.Animals.Remove(deletedAnimal);
+            _context.Animals.Remove(deletedAnimal);
+            _context.SaveChanges();
         }
 
-        private void deleteByFormToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int animalCount = AnimalStorage.Animals.Count;
-            if (animalCount != 0)
-            {
-                new DeleteAnimalForm().ShowDialog(this);
-                FillListView();
-            }
-            else
-            {
-                MessageBox.Show("There are no animals at this moment");
-            }
-        }
+        //private void deleteByFormToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    bool isAnimalExists = _context.Animals.Any();
+        //    if (isAnimalExists)
+        //    {
+        //        new DeleteAnimalForm().ShowDialog(this);
+        //        FillListView();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("There are no animals at this moment");
+        //    }
+        //}
 
         private void importFromcsvToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -137,10 +141,12 @@ namespace StartWithWindowsForm
                             Name = collection[1],
                             Size = (AnimalSize)Enum.Parse(typeof(AnimalSize), collection[2])
                         };
-                        AnimalStorage.Animals.Add(animal);
+                        _context.Animals.Add(animal);
+                        
                     }
                     sr.Close();
                 }
+                _context.SaveChanges();
 
                 FillListView();
             }
@@ -148,9 +154,9 @@ namespace StartWithWindowsForm
 
         private void expotrTocsvToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (AnimalStorage.Animals.Count == 0)
+            if (!_context.Animals.Any())
             {
-                MessageBox.Show("There are no animals,cannot create file!");
+                MessageBox.Show("There are no animals, cannot create file!");
                 return;
             }
             SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", };
@@ -171,6 +177,11 @@ namespace StartWithWindowsForm
 
                 MessageBox.Show("Saved");
             }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var box = new AboutBox().ShowDialog();
         }
     }
 }

@@ -41,7 +41,7 @@
             // 
             this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btCancel.Location = new System.Drawing.Point(208, 12);
-            this.btCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btCancel.Name = "btCancel";
             this.btCancel.Size = new System.Drawing.Size(95, 29);
             this.btCancel.TabIndex = 1;
@@ -52,7 +52,7 @@
             // 
             this.btOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btOk.Location = new System.Drawing.Point(79, 12);
-            this.btOk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btOk.Margin = new System.Windows.Forms.Padding(2);
             this.btOk.Name = "btOk";
             this.btOk.Size = new System.Drawing.Size(95, 29);
             this.btOk.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btOk);
             this.splitContainer1.Panel2.Controls.Add(this.btCancel);
-            this.splitContainer1.Size = new System.Drawing.Size(382, 291);
+            this.splitContainer1.Size = new System.Drawing.Size(713, 291);
             this.splitContainer1.SplitterDistance = 239;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -80,10 +80,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 291);
+            this.ClientSize = new System.Drawing.Size(713, 291);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CreateAnimal";
             this.ShowInTaskbar = false;
             this.Text = "Add/Edit animal";

@@ -9,6 +9,8 @@ namespace StartWithWindowsForm
             
         }
 
-        public DbSet<Animal> Animals { get; set; } 
+        public DbSet<Animal> Animals { get; set; }
+        public DbSet<AnimalType> AnimalTypes { get; set; }
+
     }
 }

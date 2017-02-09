@@ -1,6 +1,7 @@
 ﻿using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace StartWithWindowsForm
         {
             lvAnimals.Items.Clear(); //Clear all existing items in ListView
 
-            List<Animal> animal = _context.Animals.ToList();
+            List<Animal> animal = _context.Animals.AsNoTracking().ToList();
             int animalsCount = animal.Count;
 
             for (int i = 0; i < animalsCount; i++)
@@ -43,7 +44,7 @@ namespace StartWithWindowsForm
 
         private void createAnimalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreateAnimal createForm = new CreateAnimal();//Show form for create 
+            CreateAnimal createForm = new CreateAnimal(_context);//Show form for create 
                                                          //new animal
             if (createForm.ShowDialog() == DialogResult.OK)
             {
@@ -66,7 +67,7 @@ namespace StartWithWindowsForm
                 Guid selectedId = Guid.Parse(selectedAnimal.SubItems[3].Text);
                 Animal animal = _context.Animals.First(x => x.Id == selectedId);
 
-                CreateAnimal editForm = new CreateAnimal(animal);
+                CreateAnimal editForm = new CreateAnimal(animal, _context);
 
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
@@ -182,6 +183,13 @@ namespace StartWithWindowsForm
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var box = new AboutBox().ShowDialog();
+        }
+
+        private void lvAnimals_Resize(object sender, EventArgs e)
+        {
+            ListView item = (ListView) sender;
+            Size parentSize = item.Parent.Size;
+            item.Columns[1].Width = parentSize.Width - 155;
         }
     }
 }

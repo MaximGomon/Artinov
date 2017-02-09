@@ -19,4 +19,12 @@ C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\Sta
 C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.Properties.Resources.resources
 C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.csproj.GenerateResource.Cache
 C:\Users\ccdro\Desktop\1\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.DeleteAnimalForm.resources
-D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.DeleteAnimalForm.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\EntityFramework.dll
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\EntityFramework.SqlServer.dll
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\EntityFramework.xml
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\bin\Debug\EntityFramework.SqlServer.xml
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.AboutBox.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.Migrations.Initial.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.Migrations.AnimalChanges.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.UcCreateAnimal.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.UcEditAnimal.resources

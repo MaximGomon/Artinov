@@ -13,54 +13,45 @@ namespace StartWithWindowsForm
 {
     public partial class CreateAnimal : Form
     {
-        private readonly Guid _animalId;
         private readonly ElementState _state;
         private readonly AnimalsDbContext _context;
-        public CreateAnimal(Animal item)
+        public CreateAnimal(Animal item, AnimalsDbContext context)
         {
-            _context = new AnimalsDbContext();
+            _context = context;
             InitializeComponent();
-            
-            FillComboBox();
-            tbName.Text = item.Name;
-            cbSize.SelectedItem = (object)item.Size;
-            _animalId = item.Id;
-            _state = ElementState.Edit;
+            var control = new UcEditAnimal(item);
+            //control.Dock = DockStyle.Fill;
 
+            splitContainer1.Panel1.Controls.Add(control);
+            //splitContainer1.Panel1.Size = control.Size;
+            splitContainer1.Panel1.Controls[0].Dock = DockStyle.Fill;
+            _state = ElementState.Edit;
             this.Text = $"Edit animal {item.Name}";
         }
 
-        public CreateAnimal()
+        public CreateAnimal(AnimalsDbContext context)
         {
-            _context = new AnimalsDbContext();
+            _context = context;
             InitializeComponent();
-            FillComboBox();
             _state = ElementState.New;
+            var control = new UcCreateAnimal();
+            //control.Dock = DockStyle.Fill;
+            //control.Size = new Size(190, 310);
+            splitContainer1.Panel1.Controls.Add(control);
+            //var s = new Size(control.Size.Width, control.Size.Height);
+            //splitContainer1.Panel1.Size = s;
+            splitContainer1.Panel1.Controls[0].Dock = DockStyle.Fill;
 
             this.Text = "Create new animal";
         }
 
-        private void FillComboBox()
-        {
-            object[] elements = Enum.GetValues(typeof(AnimalSize)).Cast<object>().ToArray();
-            cbSize.Items.AddRange(elements);
-            cbSize.SelectedIndex = 0;
-        }
+        
 
         private void CreateAnimal_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this.DialogResult == DialogResult.OK)
             {
-                var editedAnimal = _context.Animals.FirstOrDefault(x => x.Id == _animalId);
-
-                if (editedAnimal == null)
-                {
-                    editedAnimal = new Animal();
-                }
-
-                editedAnimal.Name = tbName.Text.Trim();
-                editedAnimal.Size = (AnimalSize)cbSize.SelectedItem;
-
+                var editedAnimal = ((IAnimalStorage)splitContainer1.Panel1.Controls[0]).GetAnimal();
                 _context.Animals.AddOrUpdate(editedAnimal);
                 _context.SaveChanges();
             }

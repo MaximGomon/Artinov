@@ -65,6 +65,7 @@
     <Compile Include="AnimalsDbContext.cs" />
     <Compile Include="AnimalSize.cs" />
     <Compile Include="ElementState.cs" />
+    <Compile Include="IAnimalStorage.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,9 +82,25 @@
     <Compile Include="Migrations\201702021925178_Initial.Designer.cs">
       <DependentUpon>201702021925178_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702061833110_AnimalChanges.cs" />
+    <Compile Include="Migrations\201702061833110_AnimalChanges.Designer.cs">
+      <DependentUpon>201702061833110_AnimalChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcCreateAnimal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcCreateAnimal.Designer.cs">
+      <DependentUpon>UcCreateAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcEditAnimal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcEditAnimal.Designer.cs">
+      <DependentUpon>UcEditAnimal.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,6 +113,9 @@
     <EmbeddedResource Include="Migrations\201702021925178_Initial.resx">
       <DependentUpon>201702021925178_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702061833110_AnimalChanges.resx">
+      <DependentUpon>201702061833110_AnimalChanges.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -105,6 +125,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UcCreateAnimal.resx">
+      <DependentUpon>UcCreateAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcEditAnimal.resx">
+      <DependentUpon>UcEditAnimal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,14 +47,19 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scMain = new System.Windows.Forms.SplitContainer();
+            this.tsPictureMenu = new System.Windows.Forms.ToolStrip();
+            this.tsBtnAddAnimal = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnEditAnimal = new System.Windows.Forms.ToolStripButton();
             this.lvAnimals = new System.Windows.Forms.ListView();
             this.colNumberHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSizeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
+            this.scMain.Panel1.SuspendLayout();
             this.scMain.Panel2.SuspendLayout();
             this.scMain.SuspendLayout();
+            this.tsPictureMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainToolTip
@@ -70,7 +76,8 @@
             this.helpToolStripMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
-            this.mainMenuStrip.Size = new System.Drawing.Size(458, 28);
+            this.mainMenuStrip.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
+            this.mainMenuStrip.Size = new System.Drawing.Size(459, 26);
             this.mainMenuStrip.TabIndex = 4;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -172,16 +179,60 @@
             // scMain
             // 
             this.scMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scMain.Location = new System.Drawing.Point(0, 28);
+            this.scMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.scMain.IsSplitterFixed = true;
+            this.scMain.Location = new System.Drawing.Point(0, 26);
+            this.scMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.scMain.Name = "scMain";
             this.scMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // scMain.Panel1
+            // 
+            this.scMain.Panel1.Controls.Add(this.tsPictureMenu);
             // 
             // scMain.Panel2
             // 
             this.scMain.Panel2.Controls.Add(this.lvAnimals);
-            this.scMain.Size = new System.Drawing.Size(458, 301);
-            this.scMain.SplitterDistance = 29;
+            this.scMain.Size = new System.Drawing.Size(459, 304);
+            this.scMain.SplitterDistance = 47;
+            this.scMain.SplitterWidth = 2;
             this.scMain.TabIndex = 5;
+            // 
+            // tsPictureMenu
+            // 
+            this.tsPictureMenu.AutoSize = false;
+            this.tsPictureMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsPictureMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tsPictureMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsBtnAddAnimal,
+            this.tsBtnEditAnimal});
+            this.tsPictureMenu.Location = new System.Drawing.Point(0, 0);
+            this.tsPictureMenu.Name = "tsPictureMenu";
+            this.tsPictureMenu.Size = new System.Drawing.Size(459, 47);
+            this.tsPictureMenu.TabIndex = 0;
+            this.tsPictureMenu.Text = "toolStrip1";
+            // 
+            // tsBtnAddAnimal
+            // 
+            this.tsBtnAddAnimal.AutoSize = false;
+            this.tsBtnAddAnimal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsBtnAddAnimal.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnAddAnimal.Image")));
+            this.tsBtnAddAnimal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnAddAnimal.Name = "tsBtnAddAnimal";
+            this.tsBtnAddAnimal.Size = new System.Drawing.Size(44, 44);
+            this.tsBtnAddAnimal.Text = "Add Animal";
+            this.tsBtnAddAnimal.Click += new System.EventHandler(this.createAnimalToolStripMenuItem_Click);
+            // 
+            // tsBtnEditAnimal
+            // 
+            this.tsBtnEditAnimal.AutoSize = false;
+            this.tsBtnEditAnimal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsBtnEditAnimal.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnEditAnimal.Image")));
+            this.tsBtnEditAnimal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnEditAnimal.Name = "tsBtnEditAnimal";
+            this.tsBtnEditAnimal.Size = new System.Drawing.Size(44, 44);
+            this.tsBtnEditAnimal.Text = "Edit Animal";
+            this.tsBtnEditAnimal.Click += new System.EventHandler(this.editAnimalToolStripMenuItem_Click);
             // 
             // lvAnimals
             // 
@@ -194,12 +245,14 @@
             this.lvAnimals.FullRowSelect = true;
             this.lvAnimals.GridLines = true;
             this.lvAnimals.Location = new System.Drawing.Point(0, 0);
+            this.lvAnimals.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvAnimals.MultiSelect = false;
             this.lvAnimals.Name = "lvAnimals";
-            this.lvAnimals.Size = new System.Drawing.Size(458, 268);
+            this.lvAnimals.Size = new System.Drawing.Size(459, 255);
             this.lvAnimals.TabIndex = 0;
             this.lvAnimals.UseCompatibleStateImageBehavior = false;
             this.lvAnimals.View = System.Windows.Forms.View.Details;
+            this.lvAnimals.Resize += new System.EventHandler(this.lvAnimals_Resize);
             // 
             // colNumberHeader
             // 
@@ -218,23 +271,26 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 329);
+            this.ClientSize = new System.Drawing.Size(459, 330);
             this.Controls.Add(this.scMain);
             this.Controls.Add(this.mainMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.mainMenuStrip;
-            this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(280, 248);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Animals";
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
+            this.scMain.Panel1.ResumeLayout(false);
             this.scMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
             this.scMain.ResumeLayout(false);
+            this.tsPictureMenu.ResumeLayout(false);
+            this.tsPictureMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,6 +317,9 @@
         private System.Windows.Forms.ColumnHeader colNumberHeader;
         private System.Windows.Forms.ColumnHeader colNameHeader;
         private System.Windows.Forms.ColumnHeader colSizeHeader;
+        private System.Windows.Forms.ToolStrip tsPictureMenu;
+        private System.Windows.Forms.ToolStripButton tsBtnAddAnimal;
+        private System.Windows.Forms.ToolStripButton tsBtnEditAnimal;
     }
 }
 

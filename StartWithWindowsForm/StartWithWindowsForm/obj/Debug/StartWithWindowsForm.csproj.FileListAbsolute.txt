@@ -28,3 +28,4 @@ D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWin
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.Migrations.AnimalChanges.resources
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.UcCreateAnimal.resources
 D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.UcEditAnimal.resources
+D:\Work\Artinov\StartWithWindowsForm\StartWithWindowsForm\obj\Debug\StartWithWindowsForm.Migrations.AddAnimalType.resources

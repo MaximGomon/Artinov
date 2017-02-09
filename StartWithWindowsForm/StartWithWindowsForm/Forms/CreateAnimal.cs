@@ -34,7 +34,7 @@ namespace StartWithWindowsForm
             _context = context;
             InitializeComponent();
             _state = ElementState.New;
-            var control = new UcCreateAnimal(_context.AnimalTypes.ToList());
+            var control = new UcCreateAnimal(_context);
             //control.Dock = DockStyle.Fill;
             //control.Size = new Size(190, 310);
             splitContainer1.Panel1.Controls.Add(control);

@@ -35,6 +35,7 @@ namespace StartWithWindowsForm
             {
                 ListViewItem item = new ListViewItem(i.ToString());
                 item.SubItems.Add(animal[i].Name);
+                item.SubItems.Add(animal[i].Type.Name);
                 item.SubItems.Add(animal[i].Size.ToString());
                 item.SubItems.Add(animal[i].Id.ToString());
 
@@ -189,7 +190,7 @@ namespace StartWithWindowsForm
         {
             ListView item = (ListView) sender;
             Size parentSize = item.Parent.Size;
-            item.Columns[1].Width = parentSize.Width - 155;
+            item.Columns[1].Width = parentSize.Width - 255;
         }
     }
 }

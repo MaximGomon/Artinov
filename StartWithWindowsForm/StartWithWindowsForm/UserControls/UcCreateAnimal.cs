@@ -12,18 +12,20 @@ namespace StartWithWindowsForm
 {
     public partial class UcCreateAnimal : UserControl, IAnimalStorage
     {
-        public UcCreateAnimal(List<AnimalType> animalTypes)
+        private readonly AnimalsDbContext _context;
+        public UcCreateAnimal(AnimalsDbContext context)
         {
             InitializeComponent();
             FillComboBox();
-            FillAnimalTypes(animalTypes);
+            _context = context;
+            FillAnimalTypes();
         }
 
-        private void FillAnimalTypes(List<AnimalType> animalTypes)
+        private void FillAnimalTypes()
         {
             //Создаем список корневых елементов дерева и записываем в него те элементы
             //которые в базе данных не имеют родительского элемента 
-            List<AnimalType> coreNodes = animalTypes.Where(x => x.Parent == null).ToList();
+            List<AnimalType> coreNodes = _context.AnimalTypes.Where(x => x.Parent == null).ToList();
             //проходим по списку корневых элементов
             foreach (var node in coreNodes)
             {
@@ -33,7 +35,7 @@ namespace StartWithWindowsForm
                 //(для последующей идентификации выбраного элемента на форме)
                 coreNode.Tag = node.Id;
                 //Вызываем рекурсивную функцыю для заполнения ветвей и листов дерева
-                RecursionFillTreeViewNodes(animalTypes, node.Id, coreNode);
+                RecursionFillTreeViewNodes(_context.AnimalTypes.ToList(), node.Id, coreNode);
                 //добавляем к контролу tvAnimalTypes созданный ранее элемент дерева
                 tvAnimalTypes.Nodes.Add(coreNode);
             }
@@ -77,7 +79,8 @@ namespace StartWithWindowsForm
             {
                 Name = tbName.Text.Trim(),
                 Size = (AnimalSize) cbSize.SelectedItem,
-                CreateDate = dtpCreateDate.Value
+                CreateDate = dtpCreateDate.Value,
+                Type = _context.AnimalTypes.Find(tvAnimalTypes.SelectedNode.Tag)
             };
         }
     }

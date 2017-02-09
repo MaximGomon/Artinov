@@ -147,6 +147,7 @@
             // tvAnimalTypes
             // 
             this.tvAnimalTypes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvAnimalTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tvAnimalTypes.Location = new System.Drawing.Point(3, 18);
             this.tvAnimalTypes.Name = "tvAnimalTypes";
             this.tvAnimalTypes.Size = new System.Drawing.Size(227, 235);

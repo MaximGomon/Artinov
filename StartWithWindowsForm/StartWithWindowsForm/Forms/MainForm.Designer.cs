@@ -54,6 +54,7 @@
             this.colNumberHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSizeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colTypeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
@@ -77,7 +78,7 @@
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Padding = new System.Windows.Forms.Padding(3, 1, 0, 1);
-            this.mainMenuStrip.Size = new System.Drawing.Size(459, 26);
+            this.mainMenuStrip.Size = new System.Drawing.Size(538, 26);
             this.mainMenuStrip.TabIndex = 4;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
@@ -182,7 +183,7 @@
             this.scMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.scMain.IsSplitterFixed = true;
             this.scMain.Location = new System.Drawing.Point(0, 26);
-            this.scMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scMain.Margin = new System.Windows.Forms.Padding(2);
             this.scMain.Name = "scMain";
             this.scMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -193,7 +194,7 @@
             // scMain.Panel2
             // 
             this.scMain.Panel2.Controls.Add(this.lvAnimals);
-            this.scMain.Size = new System.Drawing.Size(459, 304);
+            this.scMain.Size = new System.Drawing.Size(538, 304);
             this.scMain.SplitterDistance = 47;
             this.scMain.SplitterWidth = 2;
             this.scMain.TabIndex = 5;
@@ -208,7 +209,7 @@
             this.tsBtnEditAnimal});
             this.tsPictureMenu.Location = new System.Drawing.Point(0, 0);
             this.tsPictureMenu.Name = "tsPictureMenu";
-            this.tsPictureMenu.Size = new System.Drawing.Size(459, 47);
+            this.tsPictureMenu.Size = new System.Drawing.Size(538, 47);
             this.tsPictureMenu.TabIndex = 0;
             this.tsPictureMenu.Text = "toolStrip1";
             // 
@@ -240,15 +241,16 @@
             this.lvAnimals.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colNumberHeader,
             this.colNameHeader,
+            this.colTypeHeader,
             this.colSizeHeader});
             this.lvAnimals.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvAnimals.FullRowSelect = true;
             this.lvAnimals.GridLines = true;
             this.lvAnimals.Location = new System.Drawing.Point(0, 0);
-            this.lvAnimals.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvAnimals.Margin = new System.Windows.Forms.Padding(2);
             this.lvAnimals.MultiSelect = false;
             this.lvAnimals.Name = "lvAnimals";
-            this.lvAnimals.Size = new System.Drawing.Size(459, 255);
+            this.lvAnimals.Size = new System.Drawing.Size(538, 255);
             this.lvAnimals.TabIndex = 0;
             this.lvAnimals.UseCompatibleStateImageBehavior = false;
             this.lvAnimals.View = System.Windows.Forms.View.Details;
@@ -269,11 +271,16 @@
             this.colSizeHeader.Text = "Size";
             this.colSizeHeader.Width = 100;
             // 
+            // colTypeHeader
+            // 
+            this.colTypeHeader.Text = "Type";
+            this.colTypeHeader.Width = 100;
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 330);
+            this.ClientSize = new System.Drawing.Size(538, 330);
             this.Controls.Add(this.scMain);
             this.Controls.Add(this.mainMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -320,6 +327,7 @@
         private System.Windows.Forms.ToolStrip tsPictureMenu;
         private System.Windows.Forms.ToolStripButton tsBtnAddAnimal;
         private System.Windows.Forms.ToolStripButton tsBtnEditAnimal;
+        private System.Windows.Forms.ColumnHeader colTypeHeader;
     }
 }
 

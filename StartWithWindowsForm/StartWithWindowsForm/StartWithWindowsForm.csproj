@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbDictionaryInitializer.cs" />
     <Compile Include="DbEntities\AnimalType.cs" />
     <Compile Include="DbEntities\IdEntity.cs" />
     <Compile Include="Forms\AboutBox.cs">

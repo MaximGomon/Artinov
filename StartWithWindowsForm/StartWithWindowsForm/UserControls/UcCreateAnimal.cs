@@ -66,10 +66,14 @@ namespace StartWithWindowsForm
             }
         }
 
+        //Метод для заполнения выпадающего списка размеров животных
         private void FillComboBox()
         {
+            //получаем все элементы енама AnimalSize
             object[] elements = Enum.GetValues(typeof(AnimalSize)).Cast<object>().ToArray();
+            //добавляем значение энама в выпадающий список
             cbSize.Items.AddRange(elements);
+            //выбираем в выпадающем списке первый элемент
             cbSize.SelectedIndex = 0;
         }
 

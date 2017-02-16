@@ -25,37 +25,29 @@ namespace StartWithThread
             //Console.WriteLine(randomIntTask.Result);
 
             CancellationTokenSource cts = new CancellationTokenSource();
-            //Task t = new Task(DisplayNumber, 23, cts.Token);
-            //t.Start();
-            //t.Wait(1000, cts.Token);
-
-            Task t1 = Task.Run(() =>
-            {
-                Thread.Sleep(500);
-                cts.Cancel();
-            });
-
             Task<int> funcTask = new Task<int>(GetRandomInt, cts.Token);
-            funcTask.Start();
-            //funcTask.Wait(1000, cts.Token);
-            //funcTask.
+            
+            Task funcTask2 = Task.Run(() => SumAndDisplay(4, 6));
+
             try
             {
-                if (funcTask.Wait(1000, cts.Token))
+                funcTask.Start();
+                if (funcTask.Wait(1000))
                 {
                     Console.WriteLine($"Task result: {funcTask.Result}");
                 }
                 else
                 {
-                    cts.Cancel();
-                    Console.WriteLine("Task was canceled!");
+                    //cts.Cancel();
+                    Console.WriteLine("Task was canceled! It`s message we newer see!");
                 }
             }
             catch (Exception ex)
             {
-                //throw;
+                Console.WriteLine($"Task was canceled and rise error {ex.Message}");
             }
-
+            
+            Task.WaitAll(funcTask, funcTask2);
             Console.WriteLine($"Task status: {funcTask.Status}");
             Console.WriteLine("Press any key to exit...");
 
@@ -94,6 +86,7 @@ namespace StartWithThread
 
         private static void SumAndDisplay(int a, int b)
         {
+            Thread.Sleep(500);
             Console.WriteLine($"Result is: {a + b}");
         }
 
@@ -120,7 +113,7 @@ namespace StartWithThread
 
         public static void DisplayNumber(object number)
         {
-            Thread.Sleep(5000);
+            //Thread.Sleep(5000);
             Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}");
             Console.WriteLine($"Input number is {number}!");
             Console.WriteLine("End display number");

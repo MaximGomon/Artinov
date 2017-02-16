@@ -29,13 +29,34 @@ namespace StartWithThread
             //t.Start();
             //t.Wait(1000, cts.Token);
 
+            Task t1 = Task.Run(() =>
+            {
+                Thread.Sleep(500);
+                cts.Cancel();
+            });
+
             Task<int> funcTask = new Task<int>(GetRandomInt, cts.Token);
             funcTask.Start();
-            funcTask.Wait(1000, cts.Token);
-            //Task
-            cts.Cancel();
-            //int result = funcTask.Result;
-            Console.WriteLine(funcTask.Result);
+            //funcTask.Wait(1000, cts.Token);
+            //funcTask.
+            try
+            {
+                if (funcTask.Wait(1000, cts.Token))
+                {
+                    Console.WriteLine($"Task result: {funcTask.Result}");
+                }
+                else
+                {
+                    cts.Cancel();
+                    Console.WriteLine("Task was canceled!");
+                }
+            }
+            catch (Exception ex)
+            {
+                //throw;
+            }
+
+            Console.WriteLine($"Task status: {funcTask.Status}");
             Console.WriteLine("Press any key to exit...");
 
             Console.ReadKey();
@@ -59,7 +80,7 @@ namespace StartWithThread
 
         private static double Divide(int a, int b)
         {
-            return (double)a/b;
+            return (double)a / b;
         }
 
         private static void RunActions()
@@ -102,7 +123,7 @@ namespace StartWithThread
             Thread.Sleep(5000);
             Console.WriteLine($"Thread Id: {Thread.CurrentThread.ManagedThreadId}");
             Console.WriteLine($"Input number is {number}!");
-            Console.WriteLine("End display number");       
+            Console.WriteLine("End display number");
         }
     }
 }

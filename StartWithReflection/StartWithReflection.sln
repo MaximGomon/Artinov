@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartWithReflection", "StartWithReflection\StartWithReflection.csproj", "{08323143-FCF4-48E7-BC86-F09802352502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse", "Warehouse\Warehouse.csproj", "{37ED1354-3B7A-4822-9A29-D655E1EED43F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08323143-FCF4-48E7-BC86-F09802352502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08323143-FCF4-48E7-BC86-F09802352502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08323143-FCF4-48E7-BC86-F09802352502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08323143-FCF4-48E7-BC86-F09802352502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37ED1354-3B7A-4822-9A29-D655E1EED43F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37ED1354-3B7A-4822-9A29-D655E1EED43F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37ED1354-3B7A-4822-9A29-D655E1EED43F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37ED1354-3B7A-4822-9A29-D655E1EED43F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

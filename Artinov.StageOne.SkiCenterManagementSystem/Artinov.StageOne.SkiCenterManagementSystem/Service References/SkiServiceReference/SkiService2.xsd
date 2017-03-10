@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="EquipmentSize">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Small" />
+      <xs:enumeration value="Middle" />
+      <xs:enumeration value="Big" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EquipmentSize" nillable="true" type="tns:EquipmentSize" />
+  <xs:simpleType name="Sex">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Man" />
+      <xs:enumeration value="Woman" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Sex" nillable="true" type="tns:Sex" />
+  <xs:simpleType name="Roles">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Admin" />
+      <xs:enumeration value="Manager" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Roles" nillable="true" type="tns:Roles" />
+  <xs:simpleType name="RentTime">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Hour" />
+      <xs:enumeration value="Day" />
+      <xs:enumeration value="Week" />
+      <xs:enumeration value="Mounth" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RentTime" nillable="true" type="tns:RentTime" />
+</xs:schema>

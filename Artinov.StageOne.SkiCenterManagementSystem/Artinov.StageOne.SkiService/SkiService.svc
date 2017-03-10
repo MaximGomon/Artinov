@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Artinov.StageOne.SkiService.SkiService" CodeBehind="SkiService.svc.cs" %>

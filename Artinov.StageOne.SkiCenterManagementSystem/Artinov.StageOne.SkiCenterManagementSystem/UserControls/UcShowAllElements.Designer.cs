@@ -2,7 +2,7 @@
 
 namespace Artinov.StageOne.SkiCenterManagementSystem
 {
-    partial class ShowAllElements<T> where T : IdEntity
+    partial class UcShowAllElements
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,13 +30,13 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowAllElements<T>));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcShowAllElements));
             this.scContent = new System.Windows.Forms.SplitContainer();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbRemove = new System.Windows.Forms.ToolStripButton();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
+            this.lvContent = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).BeginInit();
             this.scContent.Panel1.SuspendLayout();
             this.scContent.Panel2.SuspendLayout();
@@ -48,6 +48,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             // 
             this.scContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scContent.Location = new System.Drawing.Point(0, 0);
+            this.scContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.scContent.Name = "scContent";
             this.scContent.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -57,9 +58,10 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             // 
             // scContent.Panel2
             // 
-            this.scContent.Panel2.Controls.Add(this.listView1);
-            this.scContent.Size = new System.Drawing.Size(893, 565);
-            this.scContent.SplitterDistance = 53;
+            this.scContent.Panel2.Controls.Add(this.lvContent);
+            this.scContent.Size = new System.Drawing.Size(670, 459);
+            this.scContent.SplitterDistance = 43;
+            this.scContent.SplitterWidth = 3;
             this.scContent.TabIndex = 0;
             // 
             // toolStripMenu
@@ -73,22 +75,10 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             this.tsbEdit});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(893, 53);
+            this.toolStripMenu.Size = new System.Drawing.Size(670, 43);
             this.toolStripMenu.TabIndex = 0;
             this.toolStripMenu.Text = "toolStrip1";
-            // 
-            // listView1
-            // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(893, 508);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.toolStripMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStripMenu_ItemClicked);
             // 
             // tsbAdd
             // 
@@ -124,13 +114,28 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             this.tsbEdit.Size = new System.Drawing.Size(50, 50);
             this.tsbEdit.Text = "Edit";
             // 
-            // ShowAllElements
+            // lvContent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.lvContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvContent.FullRowSelect = true;
+            this.lvContent.GridLines = true;
+            this.lvContent.Location = new System.Drawing.Point(0, 0);
+            this.lvContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvContent.MultiSelect = false;
+            this.lvContent.Name = "lvContent";
+            this.lvContent.Size = new System.Drawing.Size(670, 413);
+            this.lvContent.TabIndex = 0;
+            this.lvContent.UseCompatibleStateImageBehavior = false;
+            this.lvContent.View = System.Windows.Forms.View.Details;
+            // 
+            // UcShowAllElements
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.scContent);
-            this.Name = "ShowAllElements";
-            this.Size = new System.Drawing.Size(893, 565);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "UcShowAllElements";
+            this.Size = new System.Drawing.Size(670, 459);
             this.scContent.Panel1.ResumeLayout(false);
             this.scContent.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scContent)).EndInit();
@@ -145,7 +150,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
 
         private System.Windows.Forms.SplitContainer scContent;
         private System.Windows.Forms.ToolStrip toolStripMenu;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvContent;
         private System.Windows.Forms.ToolStripButton tsbAdd;
         private System.Windows.Forms.ToolStripButton tsbRemove;
         private System.Windows.Forms.ToolStripButton tsbEdit;

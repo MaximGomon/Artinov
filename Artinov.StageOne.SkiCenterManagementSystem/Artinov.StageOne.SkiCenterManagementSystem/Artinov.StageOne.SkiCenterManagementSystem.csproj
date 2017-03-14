@@ -93,11 +93,11 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="UserControls\IEditeble.cs" />
-    <Compile Include="UserControls\ShowAllElements.cs">
+    <Compile Include="UserControls\UcShowAllElements.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ShowAllElements.Designer.cs">
-      <DependentUpon>ShowAllElements.cs</DependentUpon>
+    <Compile Include="UserControls\UcShowAllElements.Designer.cs">
+      <DependentUpon>UcShowAllElements.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -115,8 +115,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserControls\ShowAllElements.resx">
-      <DependentUpon>ShowAllElements.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcShowAllElements.resx">
+      <DependentUpon>UcShowAllElements.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

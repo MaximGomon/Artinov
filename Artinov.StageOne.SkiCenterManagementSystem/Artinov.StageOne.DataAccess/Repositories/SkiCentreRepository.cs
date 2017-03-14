@@ -9,7 +9,8 @@ namespace Artinov.StageOne.DataAccess
         public override IQueryable<SkiCenter> GetAll()
         {
             return base.GetAll()
-                .Include(x => x.Warehouses);
+                .Include(x => x.Warehouses)
+                .Include(x => x.Orders);
         }
 
         public override IQueryable<SkiCenter> GetAllNotDeleted()

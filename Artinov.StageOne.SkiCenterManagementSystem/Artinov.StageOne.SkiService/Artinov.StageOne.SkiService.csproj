@@ -65,6 +65,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\ClientModel.cs" />
     <Compile Include="SkiService.svc.cs">
       <DependentUpon>SkiService.svc</DependentUpon>
     </Compile>

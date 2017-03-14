@@ -10,7 +10,7 @@ namespace Artinov.StageOne.SkiService
     public class SkiService : ISkiService
     {
         private readonly SkiCentreBusinessLogic _skiLogic = new SkiCentreBusinessLogic();
-        private readonly WarehouseBusinessLogic _warehouseLogic = new WarehouseBusinessLogic();
+        private readonly OrderBusinessLogic _orderLogic = new OrderBusinessLogic();
 
         public SkiCenter[] GetCenters()
         {
@@ -22,24 +22,25 @@ namespace Artinov.StageOne.SkiService
             return _skiLogic.GetAllWarehousesByCentreId(skiCentreId);
         }
 
-        public List<Equipment> GetQuipmentByWarehouseId(Guid id)
+        public List<WarehouseElement> GetQuipmentByWarehouseId(Guid skiCentreId, Guid warehouseId)
         {
-            throw new NotImplementedException();
+            return _skiLogic.GetFreeEquipmentByWarehouseId(skiCentreId, warehouseId);
         }
 
-        public List<Equipment> GetQuipmentByWarehouseName(string name)
+        public List<ClientModel> GetClients()
         {
-            throw new NotImplementedException();
+            return _skiLogic.Client.GetClients().Select(x => new ClientModel
+            {
+              Name  = x.Name,
+              Age = x.Age.ToString(),
+              Sex = x.Sex.ToString(),
+              Id = x.Id
+            }).ToList();
         }
 
-        public List<Client> GetClients()
+        public List<Order> GetOrders(int count = 20, int skip = 0)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Order> GetOrders(int count, int skip = 0)
-        {
-            throw new NotImplementedException();
+            return _orderLogic.GetAll().Skip(skip).Take(count).ToList();
         }
 
         public List<Order> GetOrdersByPeriod(DateTime stardDate, DateTime endDate)
@@ -49,22 +50,27 @@ namespace Artinov.StageOne.SkiService
 
         public List<Document> GetDocumentsByClientId(Guid clientId)
         {
-            throw new NotImplementedException();
+            return _skiLogic.Client.GetClientDocuments(clientId);
         }
 
-        public List<Equipment> GetCurrentEquipmentsByClientId(Guid clientId)
+        public List<WarehouseElement> GetCurrentEquipmentsByClientId(Guid clientId)
         {
-            throw new NotImplementedException();
+            return _skiLogic.Client.GetClientRentEquipment(clientId);
         }
 
-        public List<Equipment> GetCurrentRentEquipments()
+        public List<WarehouseElement> GetCurrentRentEquipments(Guid skiCentreId)
         {
-            throw new NotImplementedException();
+            return _skiLogic.GetRentEquipment(skiCentreId);
         }
 
-        public Client GetDetailClientInfo(Guid clientId)
+        public List<WarehouseElement> GetCurrentFreeEquipments(Guid skiCentreId)
         {
-            throw new NotImplementedException();
+            return _skiLogic.GetFreeEquipment(skiCentreId);
+        }
+
+        public BigClient GetDetailClientInfo(Guid clientId)
+        {
+            return _skiLogic.Client.GetById(clientId);
         }
 
         public void AddSkiCentre(SkiCenter item)
@@ -82,6 +88,29 @@ namespace Artinov.StageOne.SkiService
             BaseBusinessLogic<User, BaseRepository<User>> userLogic = new BaseBusinessLogic<User, BaseRepository<User>>();
             var user = userLogic.Get(x => x.Login == login && x.Password == password);
             return user != null;
+        }
+
+        public void AddClient(BigClient newClient)
+        {
+            _skiLogic.Client.Add(newClient);
+        }
+
+        public void AddOrder(Order newOrder, Guid skiCentreId)
+        {
+            _skiLogic.AddOrder(newOrder, skiCentreId);
+        }
+
+        public void AddEquipment(Equipment newitem, int count, Guid warehouseId)
+        {
+            _skiLogic.AddItemToWarehouse(newitem, count, warehouseId);
+        }
+
+        public void AddWarehouse(Guid skicentreId, string name)
+        {
+            _skiLogic.AddWarehouseToCentre(skicentreId, new Warehouse
+            {
+                Name = name
+            });
         }
     }
 }

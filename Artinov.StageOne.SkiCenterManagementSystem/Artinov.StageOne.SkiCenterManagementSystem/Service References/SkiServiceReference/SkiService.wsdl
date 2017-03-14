@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:25236/SkiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:25236/SkiService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" />
       <xsd:import schemaLocation="http://localhost:25236/SkiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" />
+      <xsd:import schemaLocation="http://localhost:25236/SkiService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.SkiService" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ISkiService_GetCenters_InputMessage">
@@ -25,12 +26,6 @@
   </wsdl:message>
   <wsdl:message name="ISkiService_GetQuipmentByWarehouseId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetQuipmentByWarehouseIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISkiService_GetQuipmentByWarehouseName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetQuipmentByWarehouseName" />
-  </wsdl:message>
-  <wsdl:message name="ISkiService_GetQuipmentByWarehouseName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetQuipmentByWarehouseNameResponse" />
   </wsdl:message>
   <wsdl:message name="ISkiService_GetClients_InputMessage">
     <wsdl:part name="parameters" element="tns:GetClients" />
@@ -68,6 +63,12 @@
   <wsdl:message name="ISkiService_GetCurrentRentEquipments_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCurrentRentEquipmentsResponse" />
   </wsdl:message>
+  <wsdl:message name="ISkiService_GetCurrentFreeEquipments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentFreeEquipments" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetCurrentFreeEquipments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentFreeEquipmentsResponse" />
+  </wsdl:message>
   <wsdl:message name="ISkiService_GetDetailClientInfo_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDetailClientInfo" />
   </wsdl:message>
@@ -92,6 +93,30 @@
   <wsdl:message name="ISkiService_CheckUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckUserResponse" />
   </wsdl:message>
+  <wsdl:message name="ISkiService_AddClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddClient" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_AddClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_AddOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrder" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_AddOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_AddEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddEquipment" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_AddEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_AddWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_AddWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddWarehouseResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISkiService">
     <wsdl:operation name="GetCenters">
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetCenters" message="tns:ISkiService_GetCenters_InputMessage" />
@@ -104,10 +129,6 @@
     <wsdl:operation name="GetQuipmentByWarehouseId">
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetQuipmentByWarehouseId" message="tns:ISkiService_GetQuipmentByWarehouseId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetQuipmentByWarehouseIdResponse" message="tns:ISkiService_GetQuipmentByWarehouseId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetQuipmentByWarehouseName">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetQuipmentByWarehouseName" message="tns:ISkiService_GetQuipmentByWarehouseName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetQuipmentByWarehouseNameResponse" message="tns:ISkiService_GetQuipmentByWarehouseName_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetClients">
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetClients" message="tns:ISkiService_GetClients_InputMessage" />
@@ -133,6 +154,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetCurrentRentEquipments" message="tns:ISkiService_GetCurrentRentEquipments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetCurrentRentEquipmentsResponse" message="tns:ISkiService_GetCurrentRentEquipments_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCurrentFreeEquipments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetCurrentFreeEquipments" message="tns:ISkiService_GetCurrentFreeEquipments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetCurrentFreeEquipmentsResponse" message="tns:ISkiService_GetCurrentFreeEquipments_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetDetailClientInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetDetailClientInfo" message="tns:ISkiService_GetDetailClientInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetDetailClientInfoResponse" message="tns:ISkiService_GetDetailClientInfo_OutputMessage" />
@@ -148,6 +173,22 @@
     <wsdl:operation name="CheckUser">
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/CheckUser" message="tns:ISkiService_CheckUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/CheckUserResponse" message="tns:ISkiService_CheckUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/AddClient" message="tns:ISkiService_AddClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/AddClientResponse" message="tns:ISkiService_AddClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/AddOrder" message="tns:ISkiService_AddOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/AddOrderResponse" message="tns:ISkiService_AddOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/AddEquipment" message="tns:ISkiService_AddEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/AddEquipmentResponse" message="tns:ISkiService_AddEquipment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWarehouse">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/AddWarehouse" message="tns:ISkiService_AddWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/AddWarehouseResponse" message="tns:ISkiService_AddWarehouse_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISkiService" type="tns:ISkiService">
@@ -172,15 +213,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetQuipmentByWarehouseId">
       <soap:operation soapAction="http://tempuri.org/ISkiService/GetQuipmentByWarehouseId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetQuipmentByWarehouseName">
-      <soap:operation soapAction="http://tempuri.org/ISkiService/GetQuipmentByWarehouseName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -242,6 +274,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCurrentFreeEquipments">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/GetCurrentFreeEquipments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetDetailClientInfo">
       <soap:operation soapAction="http://tempuri.org/ISkiService/GetDetailClientInfo" style="document" />
       <wsdl:input>
@@ -271,6 +312,42 @@
     </wsdl:operation>
     <wsdl:operation name="CheckUser">
       <soap:operation soapAction="http://tempuri.org/ISkiService/CheckUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddClient">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/AddClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEquipment">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/AddEquipment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWarehouse">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/AddWarehouse" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

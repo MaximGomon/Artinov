@@ -38,6 +38,11 @@ namespace Artinov.StageOne.Logic
             Repository.Add(item);
         }
 
+        public void Update(TEntity item)
+        {
+            Repository.Update(item);
+        }
+
         public void AddRange(IEnumerable<TEntity> item)
         {
             Repository.AddRange(item);

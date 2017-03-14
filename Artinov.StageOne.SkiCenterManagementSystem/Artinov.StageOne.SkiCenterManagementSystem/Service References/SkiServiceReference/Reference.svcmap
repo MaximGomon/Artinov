@@ -27,6 +27,7 @@
     <MetadataFile FileName="SkiService1.xsd" MetadataType="Schema" ID="8f5c30ec-34d6-41c2-8c21-78758e20d6d7" SourceId="1" SourceUrl="http://localhost:25236/SkiService.svc?xsd=xsd0" />
     <MetadataFile FileName="SkiService2.xsd" MetadataType="Schema" ID="3a9c4bb8-d403-4f59-b08a-6bba20e05ad4" SourceId="1" SourceUrl="http://localhost:25236/SkiService.svc?xsd=xsd3" />
     <MetadataFile FileName="SkiService3.xsd" MetadataType="Schema" ID="2a431da7-7290-408c-af12-98c0c8476d44" SourceId="1" SourceUrl="http://localhost:25236/SkiService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SkiService4.xsd" MetadataType="Schema" ID="91e3796b-2b2d-426a-b45c-f8d9465f914d" SourceId="1" SourceUrl="http://localhost:25236/SkiService.svc?xsd=xsd4" />
     <MetadataFile FileName="SkiService.disco" MetadataType="Disco" ID="2533cc77-56e6-4d24-bc7f-386b22352412" SourceId="1" SourceUrl="http://localhost:25236/SkiService.svc?disco" />
   </Metadata>
   <Extensions>

@@ -46,6 +46,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
         {
             var clients = ServiceHelper.Client.GetClients();
             Dictionary<string, int> columns = new Dictionary<string, int> {{"Name", 150}, {"Sex", 50}, {"Age", 40}};
+            //ToDO Add Id field
             var items = clients.Select(x => new [] {x.Name, x.Sex.ToString(), x.Age.ToString()}).ToArray();
             currentControl.FillControl(columns, items); 
         }

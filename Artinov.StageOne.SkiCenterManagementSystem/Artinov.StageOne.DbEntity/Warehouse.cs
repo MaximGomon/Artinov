@@ -4,6 +4,10 @@ namespace Artinov.StageOne.DbEntity
 {
     public class Warehouse : NameEntity
     {
-         public virtual ICollection<WarehouseElement> Equipments { get; set; } 
+        public Warehouse()
+        {
+            Equipments = new List<WarehouseElement>();
+        }
+        public virtual ICollection<WarehouseElement> Equipments { get; set; }
     }
 }

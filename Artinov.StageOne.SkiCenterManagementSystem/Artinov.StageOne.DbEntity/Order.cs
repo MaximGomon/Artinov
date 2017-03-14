@@ -7,6 +7,11 @@ namespace Artinov.StageOne.DbEntity
 {
     public class Order : IdEntity
     {
+        public Order()
+        {
+            OrderElements = new List<WarehouseElement>();
+        }
+
         [Required, MaxLength(20)]
         public string Number { get; set; }
         [Required]

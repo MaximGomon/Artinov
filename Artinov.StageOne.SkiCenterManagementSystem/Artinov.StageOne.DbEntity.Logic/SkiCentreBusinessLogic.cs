@@ -9,15 +9,28 @@ namespace Artinov.StageOne.Logic
     public class SkiCentreBusinessLogic: BaseBusinessLogic<SkiCenter, SkiCentreRepository>
     {
         private readonly ClientBusinessLogic _clientLogic = new ClientBusinessLogic();
-        public IQueryable<SkiCenter> GetByName(string name)
+        private readonly WarehouseBusinessLogic _warehouseLogic = new WarehouseBusinessLogic();
+
+        public ClientBusinessLogic Client => _clientLogic;
+
+        public List<SkiCenter> GetByName(string name)
         {
-            return Repository.GetByName(name);
+            return Repository.GetByName(name).ToList();
         }
 
-        public IQueryable<Client> GetClientsOfCentreByPeriod(DateTime startDateTime, DateTime endDate)
+        public List<WarehouseElement> GetRentEquipment(Guid centreId)
         {
-            var clients = _clientLogic.GetClients();
-            return clients;
+            return Repository.GetById(centreId).Orders.SelectMany(x => x.OrderElements).ToList();
+        }
+
+        public List<WarehouseElement> GetFreeEquipment(Guid centreId)
+        {
+            return Repository.GetById(centreId).Warehouses.SelectMany(x => x.Equipments).ToList();
+        }
+
+        public List<WarehouseElement> GetFreeEquipmentByWarehouseId(Guid centreId, Guid warehouseId)
+        {
+            return Repository.GetById(centreId).Warehouses.FirstOrDefault(x => x.Id == warehouseId)?.Equipments.ToList();
         }
 
         public List<Warehouse> GetAllWarehousesByCentreId(Guid centreId)
@@ -30,6 +43,25 @@ namespace Artinov.StageOne.Logic
             SkiCenter centre = Repository.GetById(centerId);
             centre.Warehouses.Add(item);
             Repository.Update(centre);
+        }
+
+        public void AddOrder(Order newOrder, Guid centreId)
+        {
+            var centre = Repository.GetById(centreId);
+            centre.Orders.Add(newOrder);
+            Repository.Update(centre);
+        }
+
+        public void AddItemToWarehouse(Equipment newitem, int count, Guid warehouseId)
+        {
+            var item = new WarehouseElement
+            {
+                Count = count,
+                Equipment = newitem
+            };
+            var wareohuse = _warehouseLogic.GetById(warehouseId);
+            wareohuse.Equipments.Add(item);
+            _warehouseLogic.Update(wareohuse);
         }
     }
 }

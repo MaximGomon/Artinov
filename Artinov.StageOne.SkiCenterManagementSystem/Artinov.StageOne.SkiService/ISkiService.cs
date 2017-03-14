@@ -15,16 +15,13 @@ namespace Artinov.StageOne.SkiService
         List<Warehouse> GetWarehouses(Guid skiCentreId);
 
         [OperationContract]
-        List<Equipment> GetQuipmentByWarehouseId(Guid id);
+        List<WarehouseElement> GetQuipmentByWarehouseId(Guid skiCentreId, Guid warehouseId);
 
         [OperationContract]
-        List<Equipment> GetQuipmentByWarehouseName(string name);
+        List<ClientModel> GetClients();
 
         [OperationContract]
-        List<Client> GetClients();
-
-        [OperationContract]
-        List<Order> GetOrders(int count, int skip = 0);
+        List<Order> GetOrders(int count = 20, int skip = 0);
 
         [OperationContract]
         List<Order> GetOrdersByPeriod(DateTime stardDate, DateTime endDate);
@@ -33,13 +30,16 @@ namespace Artinov.StageOne.SkiService
         List<Document> GetDocumentsByClientId(Guid clientId);
 
         [OperationContract]
-        List<Equipment> GetCurrentEquipmentsByClientId(Guid clientId);
+        List<WarehouseElement> GetCurrentEquipmentsByClientId(Guid clientId);
 
         [OperationContract]
-        List<Equipment> GetCurrentRentEquipments();
+        List<WarehouseElement> GetCurrentRentEquipments(Guid skiCentreId);
 
         [OperationContract]
-        Client GetDetailClientInfo(Guid clientId);
+        List<WarehouseElement> GetCurrentFreeEquipments(Guid skiCentreId);
+
+        [OperationContract]
+        BigClient GetDetailClientInfo(Guid clientId);
 
         [OperationContract]
         void AddSkiCentre(SkiCenter item);
@@ -49,5 +49,17 @@ namespace Artinov.StageOne.SkiService
 
         [OperationContract]
         bool CheckUser(string login, string password);
+
+        [OperationContract]
+        void AddClient(BigClient newClient);
+
+        [OperationContract]
+        void AddOrder(Order newOrder, Guid skiCentreId);
+
+        [OperationContract]
+        void AddEquipment(Equipment newitem, int count, Guid warehouseId);
+
+        [OperationContract]
+        void AddWarehouse(Guid skicentreId, string name);
     }
 }

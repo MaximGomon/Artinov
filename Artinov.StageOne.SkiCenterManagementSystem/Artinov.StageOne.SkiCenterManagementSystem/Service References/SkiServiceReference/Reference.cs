@@ -20,7 +20,23 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
     public partial class SkiCenter : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.NameEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order[] OrdersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Warehouse[] WarehousesField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order[] Orders {
+            get {
+                return this.OrdersField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrdersField, value) != true)) {
+                    this.OrdersField = value;
+                    this.RaisePropertyChanged("Orders");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Warehouse[] Warehouses {
@@ -34,27 +50,24 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
                 }
             }
         }
-
-        public override string ToString()
-        {
-            return Name;
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="IdEntity", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.NameEntity))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Warehouse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Document))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.SkiCenter))]
     public partial class IdEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsDeletedField;
@@ -66,6 +79,19 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
             }
         }
         
@@ -88,45 +114,6 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WarehouseElement", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
-    [System.SerializableAttribute()]
-    public partial class WarehouseElement : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.IdEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment EquipmentField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Count {
-            get {
-                return this.CountField;
-            }
-            set {
-                if ((this.CountField.Equals(value) != true)) {
-                    this.CountField = value;
-                    this.RaisePropertyChanged("Count");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment Equipment {
-            get {
-                return this.EquipmentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EquipmentField, value) != true)) {
-                    this.EquipmentField = value;
-                    this.RaisePropertyChanged("Equipment");
-                }
             }
         }
     }
@@ -252,15 +239,57 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WarehouseElement", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
+    [System.SerializableAttribute()]
+    public partial class WarehouseElement : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.IdEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment EquipmentField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Count {
+            get {
+                return this.CountField;
+            }
+            set {
+                if ((this.CountField.Equals(value) != true)) {
+                    this.CountField = value;
+                    this.RaisePropertyChanged("Count");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment Equipment {
+            get {
+                return this.EquipmentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EquipmentField, value) != true)) {
+                    this.EquipmentField = value;
+                    this.RaisePropertyChanged("Equipment");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="NameEntity", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.User))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.LittleClient))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Document))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Phone))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.DictionaryEntity))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.EquipmentType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.User))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Warehouse))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Document))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.SkiCenter))]
     public partial class NameEntity : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.IdEntity {
         
@@ -306,6 +335,180 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
+    [System.SerializableAttribute()]
+    public partial class User : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.NameEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Roles RoleField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Login {
+            get {
+                return this.LoginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
+                    this.LoginField = value;
+                    this.RaisePropertyChanged("Login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Roles Role {
+            get {
+                return this.RoleField;
+            }
+            set {
+                if ((this.RoleField.Equals(value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Client", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.LittleClient))]
+    public partial class Client : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.NameEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Sex SexField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((this.AgeField.Equals(value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Sex Sex {
+            get {
+                return this.SexField;
+            }
+            set {
+                if ((this.SexField.Equals(value) != true)) {
+                    this.SexField = value;
+                    this.RaisePropertyChanged("Sex");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BigClient", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
+    [System.SerializableAttribute()]
+    public partial class BigClient : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.LittleClient[] ChildsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Document[] DocumentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Phone[] PhonesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] RentEquipmentsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.LittleClient[] Childs {
+            get {
+                return this.ChildsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ChildsField, value) != true)) {
+                    this.ChildsField = value;
+                    this.RaisePropertyChanged("Childs");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Document[] Documents {
+            get {
+                return this.DocumentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DocumentsField, value) != true)) {
+                    this.DocumentsField = value;
+                    this.RaisePropertyChanged("Documents");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Phone[] Phones {
+            get {
+                return this.PhonesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhonesField, value) != true)) {
+                    this.PhonesField = value;
+                    this.RaisePropertyChanged("Phones");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] RentEquipments {
+            get {
+                return this.RentEquipmentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RentEquipmentsField, value) != true)) {
+                    this.RentEquipmentsField = value;
+                    this.RaisePropertyChanged("RentEquipments");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LittleClient", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
+    [System.SerializableAttribute()]
+    public partial class LittleClient : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Document", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
     [System.SerializableAttribute()]
     public partial class Document : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.NameEntity {
@@ -341,6 +544,13 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Phone", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
+    [System.SerializableAttribute()]
+    public partial class Phone : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.NameEntity {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -445,114 +655,6 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
-    [System.SerializableAttribute()]
-    public partial class User : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.NameEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LoginField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Roles RoleField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Login {
-            get {
-                return this.LoginField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
-                    this.LoginField = value;
-                    this.RaisePropertyChanged("Login");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Roles Role {
-            get {
-                return this.RoleField;
-            }
-            set {
-                if ((this.RoleField.Equals(value) != true)) {
-                    this.RoleField = value;
-                    this.RaisePropertyChanged("Role");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Client", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity")]
-    [System.SerializableAttribute()]
-    public partial class Client : Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.NameEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AgeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Sex SexField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Age {
-            get {
-                return this.AgeField;
-            }
-            set {
-                if ((this.AgeField.Equals(value) != true)) {
-                    this.AgeField = value;
-                    this.RaisePropertyChanged("Age");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Sex Sex {
-            get {
-                return this.SexField;
-            }
-            set {
-                if ((this.SexField.Equals(value) != true)) {
-                    this.SexField = value;
-                    this.RaisePropertyChanged("Sex");
-                }
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EquipmentSize", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums")]
-    public enum EquipmentSize : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Small = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Middle = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Big = 2,
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RentTime", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums")]
     public enum RentTime : int {
@@ -592,6 +694,113 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
         Woman = 1,
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EquipmentSize", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums")]
+    public enum EquipmentSize : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Small = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Middle = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Big = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClientModel", Namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.SkiService")]
+    [System.SerializableAttribute()]
+    public partial class ClientModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SexField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AgeField, value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sex {
+            get {
+                return this.SexField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SexField, value) != true)) {
+                    this.SexField = value;
+                    this.RaisePropertyChanged("Sex");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SkiServiceReference.ISkiService")]
     public interface ISkiService {
@@ -609,22 +818,16 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
         System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Warehouse[]> GetWarehousesAsync(System.Guid skiCentreId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetQuipmentByWarehouseId", ReplyAction="http://tempuri.org/ISkiService/GetQuipmentByWarehouseIdResponse")]
-        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[] GetQuipmentByWarehouseId(System.Guid id);
+        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] GetQuipmentByWarehouseId(System.Guid skiCentreId, System.Guid warehouseId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetQuipmentByWarehouseId", ReplyAction="http://tempuri.org/ISkiService/GetQuipmentByWarehouseIdResponse")]
-        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[]> GetQuipmentByWarehouseIdAsync(System.Guid id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetQuipmentByWarehouseName", ReplyAction="http://tempuri.org/ISkiService/GetQuipmentByWarehouseNameResponse")]
-        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[] GetQuipmentByWarehouseName(string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetQuipmentByWarehouseName", ReplyAction="http://tempuri.org/ISkiService/GetQuipmentByWarehouseNameResponse")]
-        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[]> GetQuipmentByWarehouseNameAsync(string name);
+        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[]> GetQuipmentByWarehouseIdAsync(System.Guid skiCentreId, System.Guid warehouseId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetClients", ReplyAction="http://tempuri.org/ISkiService/GetClientsResponse")]
-        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client[] GetClients();
+        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.ClientModel[] GetClients();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetClients", ReplyAction="http://tempuri.org/ISkiService/GetClientsResponse")]
-        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client[]> GetClientsAsync();
+        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.ClientModel[]> GetClientsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetOrders", ReplyAction="http://tempuri.org/ISkiService/GetOrdersResponse")]
         Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order[] GetOrders(int count, int skip);
@@ -645,22 +848,28 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
         System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Document[]> GetDocumentsByClientIdAsync(System.Guid clientId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetCurrentEquipmentsByClientId", ReplyAction="http://tempuri.org/ISkiService/GetCurrentEquipmentsByClientIdResponse")]
-        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[] GetCurrentEquipmentsByClientId(System.Guid clientId);
+        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] GetCurrentEquipmentsByClientId(System.Guid clientId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetCurrentEquipmentsByClientId", ReplyAction="http://tempuri.org/ISkiService/GetCurrentEquipmentsByClientIdResponse")]
-        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[]> GetCurrentEquipmentsByClientIdAsync(System.Guid clientId);
+        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[]> GetCurrentEquipmentsByClientIdAsync(System.Guid clientId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetCurrentRentEquipments", ReplyAction="http://tempuri.org/ISkiService/GetCurrentRentEquipmentsResponse")]
-        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[] GetCurrentRentEquipments();
+        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] GetCurrentRentEquipments(System.Guid skiCentreId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetCurrentRentEquipments", ReplyAction="http://tempuri.org/ISkiService/GetCurrentRentEquipmentsResponse")]
-        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[]> GetCurrentRentEquipmentsAsync();
+        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[]> GetCurrentRentEquipmentsAsync(System.Guid skiCentreId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetCurrentFreeEquipments", ReplyAction="http://tempuri.org/ISkiService/GetCurrentFreeEquipmentsResponse")]
+        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] GetCurrentFreeEquipments(System.Guid skiCentreId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetCurrentFreeEquipments", ReplyAction="http://tempuri.org/ISkiService/GetCurrentFreeEquipmentsResponse")]
+        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[]> GetCurrentFreeEquipmentsAsync(System.Guid skiCentreId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetDetailClientInfo", ReplyAction="http://tempuri.org/ISkiService/GetDetailClientInfoResponse")]
-        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client GetDetailClientInfo(System.Guid clientId);
+        Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient GetDetailClientInfo(System.Guid clientId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/GetDetailClientInfo", ReplyAction="http://tempuri.org/ISkiService/GetDetailClientInfoResponse")]
-        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client> GetDetailClientInfoAsync(System.Guid clientId);
+        System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient> GetDetailClientInfoAsync(System.Guid clientId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddSkiCentre", ReplyAction="http://tempuri.org/ISkiService/AddSkiCentreResponse")]
         void AddSkiCentre(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.SkiCenter item);
@@ -679,6 +888,30 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/CheckUser", ReplyAction="http://tempuri.org/ISkiService/CheckUserResponse")]
         System.Threading.Tasks.Task<bool> CheckUserAsync(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddClient", ReplyAction="http://tempuri.org/ISkiService/AddClientResponse")]
+        void AddClient(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient newClient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddClient", ReplyAction="http://tempuri.org/ISkiService/AddClientResponse")]
+        System.Threading.Tasks.Task AddClientAsync(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient newClient);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddOrder", ReplyAction="http://tempuri.org/ISkiService/AddOrderResponse")]
+        void AddOrder(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order newOrder, System.Guid skiCentreId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddOrder", ReplyAction="http://tempuri.org/ISkiService/AddOrderResponse")]
+        System.Threading.Tasks.Task AddOrderAsync(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order newOrder, System.Guid skiCentreId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddEquipment", ReplyAction="http://tempuri.org/ISkiService/AddEquipmentResponse")]
+        void AddEquipment(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment newitem, int count, System.Guid warehouseId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddEquipment", ReplyAction="http://tempuri.org/ISkiService/AddEquipmentResponse")]
+        System.Threading.Tasks.Task AddEquipmentAsync(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment newitem, int count, System.Guid warehouseId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddWarehouse", ReplyAction="http://tempuri.org/ISkiService/AddWarehouseResponse")]
+        void AddWarehouse(System.Guid skicentreId, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISkiService/AddWarehouse", ReplyAction="http://tempuri.org/ISkiService/AddWarehouseResponse")]
+        System.Threading.Tasks.Task AddWarehouseAsync(System.Guid skicentreId, string name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -724,27 +957,19 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
             return base.Channel.GetWarehousesAsync(skiCentreId);
         }
         
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[] GetQuipmentByWarehouseId(System.Guid id) {
-            return base.Channel.GetQuipmentByWarehouseId(id);
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] GetQuipmentByWarehouseId(System.Guid skiCentreId, System.Guid warehouseId) {
+            return base.Channel.GetQuipmentByWarehouseId(skiCentreId, warehouseId);
         }
         
-        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[]> GetQuipmentByWarehouseIdAsync(System.Guid id) {
-            return base.Channel.GetQuipmentByWarehouseIdAsync(id);
+        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[]> GetQuipmentByWarehouseIdAsync(System.Guid skiCentreId, System.Guid warehouseId) {
+            return base.Channel.GetQuipmentByWarehouseIdAsync(skiCentreId, warehouseId);
         }
         
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[] GetQuipmentByWarehouseName(string name) {
-            return base.Channel.GetQuipmentByWarehouseName(name);
-        }
-        
-        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[]> GetQuipmentByWarehouseNameAsync(string name) {
-            return base.Channel.GetQuipmentByWarehouseNameAsync(name);
-        }
-        
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client[] GetClients() {
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.ClientModel[] GetClients() {
             return base.Channel.GetClients();
         }
         
-        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client[]> GetClientsAsync() {
+        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.ClientModel[]> GetClientsAsync() {
             return base.Channel.GetClientsAsync();
         }
         
@@ -772,27 +997,35 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
             return base.Channel.GetDocumentsByClientIdAsync(clientId);
         }
         
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[] GetCurrentEquipmentsByClientId(System.Guid clientId) {
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] GetCurrentEquipmentsByClientId(System.Guid clientId) {
             return base.Channel.GetCurrentEquipmentsByClientId(clientId);
         }
         
-        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[]> GetCurrentEquipmentsByClientIdAsync(System.Guid clientId) {
+        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[]> GetCurrentEquipmentsByClientIdAsync(System.Guid clientId) {
             return base.Channel.GetCurrentEquipmentsByClientIdAsync(clientId);
         }
         
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[] GetCurrentRentEquipments() {
-            return base.Channel.GetCurrentRentEquipments();
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] GetCurrentRentEquipments(System.Guid skiCentreId) {
+            return base.Channel.GetCurrentRentEquipments(skiCentreId);
         }
         
-        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment[]> GetCurrentRentEquipmentsAsync() {
-            return base.Channel.GetCurrentRentEquipmentsAsync();
+        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[]> GetCurrentRentEquipmentsAsync(System.Guid skiCentreId) {
+            return base.Channel.GetCurrentRentEquipmentsAsync(skiCentreId);
         }
         
-        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client GetDetailClientInfo(System.Guid clientId) {
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[] GetCurrentFreeEquipments(System.Guid skiCentreId) {
+            return base.Channel.GetCurrentFreeEquipments(skiCentreId);
+        }
+        
+        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement[]> GetCurrentFreeEquipmentsAsync(System.Guid skiCentreId) {
+            return base.Channel.GetCurrentFreeEquipmentsAsync(skiCentreId);
+        }
+        
+        public Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient GetDetailClientInfo(System.Guid clientId) {
             return base.Channel.GetDetailClientInfo(clientId);
         }
         
-        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client> GetDetailClientInfoAsync(System.Guid clientId) {
+        public System.Threading.Tasks.Task<Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient> GetDetailClientInfoAsync(System.Guid clientId) {
             return base.Channel.GetDetailClientInfoAsync(clientId);
         }
         
@@ -818,6 +1051,38 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference {
         
         public System.Threading.Tasks.Task<bool> CheckUserAsync(string login, string password) {
             return base.Channel.CheckUserAsync(login, password);
+        }
+        
+        public void AddClient(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient newClient) {
+            base.Channel.AddClient(newClient);
+        }
+        
+        public System.Threading.Tasks.Task AddClientAsync(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient newClient) {
+            return base.Channel.AddClientAsync(newClient);
+        }
+        
+        public void AddOrder(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order newOrder, System.Guid skiCentreId) {
+            base.Channel.AddOrder(newOrder, skiCentreId);
+        }
+        
+        public System.Threading.Tasks.Task AddOrderAsync(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order newOrder, System.Guid skiCentreId) {
+            return base.Channel.AddOrderAsync(newOrder, skiCentreId);
+        }
+        
+        public void AddEquipment(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment newitem, int count, System.Guid warehouseId) {
+            base.Channel.AddEquipment(newitem, count, warehouseId);
+        }
+        
+        public System.Threading.Tasks.Task AddEquipmentAsync(Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment newitem, int count, System.Guid warehouseId) {
+            return base.Channel.AddEquipmentAsync(newitem, count, warehouseId);
+        }
+        
+        public void AddWarehouse(System.Guid skicentreId, string name) {
+            base.Channel.AddWarehouse(skicentreId, name);
+        }
+        
+        public System.Threading.Tasks.Task AddWarehouseAsync(System.Guid skicentreId, string name) {
+            return base.Channel.AddWarehouseAsync(skicentreId, name);
         }
     }
 }

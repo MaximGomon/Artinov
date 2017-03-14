@@ -33,6 +33,17 @@ namespace Artinov.StageOne.Logic
             Repository.Update(client);
         }
 
+        public List<Document> GetClientDocuments(Guid clientId)
+        {
+            var client = Repository.GetById(clientId);
+            return client.Documents.ToList();
+        }
+
+        public List<WarehouseElement> GetClientRentEquipment(Guid clientId)
+        {
+            return Repository.GetRentEqipmentsByClientId(clientId);
+        }
+
         public IQueryable<BigClient> GetClients()
         {
             return Repository.GetAll();

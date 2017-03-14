@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:25236/SkiService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:import schemaLocation="http://localhost:25236/SkiService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" />
   <xs:complexType name="ArrayOfSkiCenter">
     <xs:sequence>
@@ -11,6 +12,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:NameEntity">
         <xs:sequence>
+          <xs:element minOccurs="0" name="Orders" nillable="true" type="tns:ArrayOfOrder" />
           <xs:element minOccurs="0" name="Warehouses" nillable="true" type="tns:ArrayOfWarehouse" />
         </xs:sequence>
       </xs:extension>
@@ -29,26 +31,56 @@
   <xs:element name="NameEntity" nillable="true" type="tns:NameEntity" />
   <xs:complexType name="IdEntity">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="IdEntity" nillable="true" type="tns:IdEntity" />
-  <xs:complexType name="ArrayOfWarehouse">
+  <xs:complexType name="ArrayOfOrder">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Warehouse" nillable="true" type="tns:Warehouse" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfWarehouse" nillable="true" type="tns:ArrayOfWarehouse" />
-  <xs:complexType name="Warehouse">
+  <xs:element name="ArrayOfOrder" nillable="true" type="tns:ArrayOfOrder" />
+  <xs:complexType name="Order">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:NameEntity">
+      <xs:extension base="tns:IdEntity">
         <xs:sequence>
-          <xs:element minOccurs="0" name="Equipments" nillable="true" type="tns:ArrayOfWarehouseElement" />
+          <xs:element minOccurs="0" name="Author" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
+          <xs:element minOccurs="0" name="Cost" type="xs:double" />
+          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrderElements" nillable="true" type="tns:ArrayOfWarehouseElement" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="RentTime" type="q1:RentTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Warehouse" nillable="true" type="tns:Warehouse" />
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NameEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Role" type="q2:Roles" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="Client">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NameEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Age" type="xs:int" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Sex" type="q3:Sex" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
   <xs:complexType name="ArrayOfWarehouseElement">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="WarehouseElement" nillable="true" type="tns:WarehouseElement" />
@@ -70,7 +102,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:NameEntity">
         <xs:sequence>
-          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Size" type="q1:EquipmentSize" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Size" type="q4:EquipmentSize" />
           <xs:element minOccurs="0" name="Type" nillable="true" type="tns:EquipmentType" />
         </xs:sequence>
       </xs:extension>
@@ -98,63 +130,22 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DictionaryEntity" nillable="true" type="tns:DictionaryEntity" />
-  <xs:complexType name="ArrayOfEquipment">
+  <xs:complexType name="ArrayOfWarehouse">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Equipment" nillable="true" type="tns:Equipment" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Warehouse" nillable="true" type="tns:Warehouse" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfEquipment" nillable="true" type="tns:ArrayOfEquipment" />
-  <xs:complexType name="ArrayOfClient">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
-  <xs:complexType name="Client">
+  <xs:element name="ArrayOfWarehouse" nillable="true" type="tns:ArrayOfWarehouse" />
+  <xs:complexType name="Warehouse">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:NameEntity">
         <xs:sequence>
-          <xs:element minOccurs="0" name="Age" type="xs:int" />
-          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Sex" type="q2:Sex" />
+          <xs:element minOccurs="0" name="Equipments" nillable="true" type="tns:ArrayOfWarehouseElement" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="Client" nillable="true" type="tns:Client" />
-  <xs:complexType name="ArrayOfOrder">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOrder" nillable="true" type="tns:ArrayOfOrder" />
-  <xs:complexType name="Order">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:IdEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Author" nillable="true" type="tns:User" />
-          <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
-          <xs:element minOccurs="0" name="Cost" type="xs:double" />
-          <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OrderElements" nillable="true" type="tns:ArrayOfWarehouseElement" />
-          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="RentTime" type="q3:RentTime" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Order" nillable="true" type="tns:Order" />
-  <xs:complexType name="User">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:NameEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Role" type="q4:Roles" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:element name="Warehouse" nillable="true" type="tns:Warehouse" />
   <xs:complexType name="ArrayOfDocument">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:Document" />
@@ -172,4 +163,45 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Document" nillable="true" type="tns:Document" />
+  <xs:complexType name="BigClient">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Client">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Childs" nillable="true" type="tns:ArrayOfLittleClient" />
+          <xs:element minOccurs="0" name="Documents" nillable="true" type="tns:ArrayOfDocument" />
+          <xs:element minOccurs="0" name="Phones" nillable="true" type="tns:ArrayOfPhone" />
+          <xs:element minOccurs="0" name="RentEquipments" nillable="true" type="tns:ArrayOfWarehouseElement" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BigClient" nillable="true" type="tns:BigClient" />
+  <xs:complexType name="ArrayOfLittleClient">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LittleClient" nillable="true" type="tns:LittleClient" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLittleClient" nillable="true" type="tns:ArrayOfLittleClient" />
+  <xs:complexType name="LittleClient">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Client">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LittleClient" nillable="true" type="tns:LittleClient" />
+  <xs:complexType name="ArrayOfPhone">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:Phone" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhone" nillable="true" type="tns:ArrayOfPhone" />
+  <xs:complexType name="Phone">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:NameEntity">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Phone" nillable="true" type="tns:Phone" />
 </xs:schema>

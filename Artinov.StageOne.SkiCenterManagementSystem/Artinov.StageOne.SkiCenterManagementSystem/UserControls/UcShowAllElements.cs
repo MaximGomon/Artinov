@@ -70,7 +70,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
 
             if (addForm.ShowDialog() == DialogResult.OK)
             {
-                _refreshCallback.DynamicInvoke();
+                _refreshCallback.DynamicInvoke(this);
             }
         }
 

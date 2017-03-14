@@ -78,11 +78,6 @@ namespace Artinov.StageOne.SkiService
             _skiLogic.Add(item);
         }
 
-        public void AddWarehouseToSkiCentre(Guid skiCenterId, Warehouse item)
-        {
-            _skiLogic.AddWarehouseToCentre(skiCenterId, item);
-        }
-
         public bool CheckUser(string login, string password)
         {
             BaseBusinessLogic<User, BaseRepository<User>> userLogic = new BaseBusinessLogic<User, BaseRepository<User>>();

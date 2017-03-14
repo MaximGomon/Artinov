@@ -45,9 +45,6 @@ namespace Artinov.StageOne.SkiService
         void AddSkiCentre(SkiCenter item);
 
         [OperationContract]
-        void AddWarehouseToSkiCentre(Guid skiCenterId, Warehouse item);
-
-        [OperationContract]
         bool CheckUser(string login, string password);
 
         [OperationContract]

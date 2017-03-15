@@ -36,17 +36,18 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             switch (tabControl.SelectedTab.Name)
             {
                 case nameof(tabClients):
-                    _showAll = new UcShowAllElements(typeof (Client), new CallbackRefresh(LoadClients));
+                    var manager = new ClientManager();
+                    _showAll = new UcShowAllElements(manager, LoadClients);
                     tabClients.Controls.Add(_showAll);
                     break;
             }
         }
 
-        private void LoadClients(IEditeble currentControl)
+        private void LoadClients(IFilleble currentControl)
         {
             var clients = ServiceHelper.Client.GetClients();
-            Dictionary<string, int> columns = new Dictionary<string, int> {{"Name", 150}, {"Sex", 50}, {"Age", 40}};
-            var items = clients.Select(x => new [] {x.Name, x.Sex.ToString(), x.Age.ToString(), x.Id.ToString()}).ToArray();
+            Dictionary<string, int> columns = new Dictionary<string, int> { { "Id", 1 }, { "Name", 150}, {"Sex", 50}, {"Age", 40}};
+            var items = clients?.Select(x => new [] { x.Id.ToString(), x.Name, x.Sex.ToString(), x.Age.ToString()}).ToArray();
             currentControl.FillControl(columns, items); 
         }
     }

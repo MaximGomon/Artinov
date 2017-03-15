@@ -5,11 +5,8 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
 {
     public interface IEditeble
     {
-        void Delete();
-        void Edit();
-        void Add();
-        void FillControl(Dictionary<string, int> columns, string[][] elements);
+        void Delete(CallbackRefresh refresh, Guid id, IFilleble control);
+        void Edit(CallbackRefresh refresh, Guid id, IFilleble control);
+        void Add(CallbackRefresh refresh, IFilleble control);
     }
-
-    public delegate void CallbackRefresh(IEditeble control);
 }

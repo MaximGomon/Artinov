@@ -18,7 +18,7 @@ namespace Artinov.StageOne.Logic
                 if (littleClient.Age <= 18)
                 {
                     childrenCount++;
-                    client.Childs.Add(littleClient);
+                    client?.Childs.Add(littleClient);
                 }
             }
 
@@ -29,14 +29,14 @@ namespace Artinov.StageOne.Logic
         public void AddDocument(Document document, Guid clientId)
         {
             var client = Repository.GetById(clientId);
-            client.Documents.Add(document);
+            client?.Documents.Add(document);
             Repository.Update(client);
         }
 
         public List<Document> GetClientDocuments(Guid clientId)
         {
             var client = Repository.GetById(clientId);
-            return client.Documents.ToList();
+            return client?.Documents.ToList();
         }
 
         public List<WarehouseElement> GetClientRentEquipment(Guid clientId)
@@ -52,7 +52,7 @@ namespace Artinov.StageOne.Logic
         public void AddPhone(Guid clientId, string phone)
         {
             var client = Repository.GetById(clientId);
-            client.Phones.Add(new Phone
+            client?.Phones.Add(new Phone
             {
                 Name = phone
             });

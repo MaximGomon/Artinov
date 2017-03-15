@@ -1,22 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
-using Artinov.StageOne.SkiCenterManagementSystem.Forms;
-using Artinov.StageOne.SkiCenterManagementSystem.Helpers;
-using Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference;
 
 namespace Artinov.StageOne.SkiCenterManagementSystem
 {
-    public partial class UcShowAllElements : UserControl, IEditeble
+    public partial class UcShowAllElements : UserControl, IFilleble
     {
-        private readonly Type _contentType;
-        private readonly Delegate _refreshCallback;
+        private readonly IEditeble _manager;
+        private readonly CallbackRefresh _refreshCallback;
 
-        public UcShowAllElements(Type contentType, CallbackRefresh refreshCallback)
+
+        public UcShowAllElements()
         {
-            _contentType = contentType;
+            InitializeComponent();
+        }
+
+        public int MenuPanelHeight
+        {
+            set { this.scContent.Panel1.Size = new Size(scContent.Panel1.Size.Width, value); }
+        }
+
+        public ColumnHeaderStyle ColumnHeaderStyle
+        {
+            set { this.lvContent.HeaderStyle = value; }
+        }
+
+        public ListView.ListViewItemCollection Items => lvContent.Items;
+
+        public UcShowAllElements(IEditeble manager, CallbackRefresh refreshCallback)
+        {
+            _manager = manager;
             _refreshCallback = refreshCallback;
             InitializeComponent();
+            refreshCallback.Invoke(this);
+            this.Dock = DockStyle.Fill;
         }
 
         public void FillControl(Dictionary<string, int> columns, string[][] elements)
@@ -33,44 +51,14 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
 
         public void Delete()
         {
+            if (lvContent.SelectedItems.Count == 0)
+                return;
+
             if (
                 MessageBox.Show("Are you sure?", "Information", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) ==
                 DialogResult.OK)
             {
-                //ServiceHelper.Client.
-            }
-        }
-
-        public void Edit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add()
-        {
-            Form addForm = null;
-            if (_contentType == typeof (Client))
-            {
-                addForm = new ClientForm();
-            }
-            else if (_contentType == typeof (Order))
-            {
-                addForm = new OrderForm();
-            }
-            else if (_contentType == typeof(Warehouse))
-            {
-                addForm = new WarehouseForm();
-            }
-            else if (_contentType == typeof (WarehouseElement))
-            {
-                addForm = new EquipmentForm();
-            }
-            else
-                return;
-
-            if (addForm.ShowDialog() == DialogResult.OK)
-            {
-                _refreshCallback.DynamicInvoke(this);
+                _manager.Delete(_refreshCallback, Guid.Parse(lvContent.SelectedItems[0].SubItems[0].Text), this);
             }
         }
 
@@ -79,10 +67,12 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             switch (e.ClickedItem.Name)
             {
                 case nameof(tsbAdd):
-                    Add();
+                    _manager.Add(_refreshCallback, this);
                     break;
                 case nameof(tsbEdit):
-                    Edit();
+                    if (lvContent.SelectedItems.Count == 0)
+                        break;
+                    _manager.Edit(_refreshCallback, Guid.Parse(lvContent.SelectedItems[0].SubItems[0].Text), this);
                     break;
                 case nameof(tsbRemove):
                     Delete();

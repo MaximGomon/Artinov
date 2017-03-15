@@ -48,11 +48,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ChildrenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChildrenForm.Designer.cs">
+      <DependentUpon>ChildrenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DocumentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DocumentForm.Designer.cs">
+      <DependentUpon>DocumentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EquipmentForm.cs">
       <SubType>Form</SubType>
@@ -78,12 +90,22 @@
     <Compile Include="Forms\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PhoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PhoneForm.Designer.cs">
+      <DependentUpon>PhoneForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\WarehouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\WarehouseForm.Designer.cs">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\PhoneManager.cs" />
+    <Compile Include="Helpers\DocumentManager.cs" />
+    <Compile Include="Helpers\ChildrenManager.cs" />
+    <Compile Include="Helpers\ClientManager.cs" />
     <Compile Include="Helpers\ServiceHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,12 +115,16 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="UserControls\IEditeble.cs" />
+    <Compile Include="UserControls\IFilleble.cs" />
     <Compile Include="UserControls\UcShowAllElements.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\UcShowAllElements.Designer.cs">
       <DependentUpon>UcShowAllElements.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,13 +153,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Client.datasource">
+    <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.BigClient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.ClientModel.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Document.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Equipment.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order.datasource">
@@ -143,6 +169,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Warehouse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.WarehouseElement.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SkiServiceReference\SkiService.wsdl" />
@@ -156,6 +185,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SkiServiceReference\SkiService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SkiServiceReference\SkiService4.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

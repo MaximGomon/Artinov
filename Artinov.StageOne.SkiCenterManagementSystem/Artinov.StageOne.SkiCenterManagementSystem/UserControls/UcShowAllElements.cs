@@ -12,7 +12,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
         private readonly Type _contentType;
         private readonly Delegate _refreshCallback;
 
-        public UcShowAllElements(Type contentType, Delegate refreshCallback)
+        public UcShowAllElements(Type contentType, CallbackRefresh refreshCallback)
         {
             _contentType = contentType;
             _refreshCallback = refreshCallback;

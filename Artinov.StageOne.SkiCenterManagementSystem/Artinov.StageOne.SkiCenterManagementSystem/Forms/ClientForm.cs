@@ -12,17 +12,17 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
         private readonly Guid _clientId;
         public ClientForm()
         {
+            _clientId = Guid.NewGuid();
             InitializeComponent();
             this.ucTelephones.ColumnHeaderStyle = ColumnHeaderStyle.None;
-            _clientId = Guid.NewGuid();
             FillForm();
         }
 
         public ClientForm(Guid id)
         {
+            _clientId = id;
             InitializeComponent();
             this.ucTelephones.ColumnHeaderStyle = ColumnHeaderStyle.None;
-            _clientId = id;
             FillForm();
         }
 

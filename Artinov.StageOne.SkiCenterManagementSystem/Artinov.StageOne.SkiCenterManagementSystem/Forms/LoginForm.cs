@@ -42,3 +42,15 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
         }
     }
 }
+
+namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference
+{
+    public partial class SkiCenter
+    {
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
+}

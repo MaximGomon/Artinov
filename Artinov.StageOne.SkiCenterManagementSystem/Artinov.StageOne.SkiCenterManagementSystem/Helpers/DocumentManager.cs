@@ -6,6 +6,13 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.Helpers
 {
     public class DocumentManager : IEditeble
     {
+        private readonly Guid _clientId;
+
+        public DocumentManager(Guid clientId)
+        {
+            _clientId = clientId;
+        }
+
         public void Delete(CallbackRefresh refresh, Guid id, IFilleble control)
         {
             //ServiceHelper.Client.

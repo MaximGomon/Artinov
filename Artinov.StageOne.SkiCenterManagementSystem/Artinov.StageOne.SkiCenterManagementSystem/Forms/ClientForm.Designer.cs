@@ -40,9 +40,9 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             this.gbPhones = new System.Windows.Forms.GroupBox();
             this.ucTelephones = new UcShowAllElements(new PhoneManager(_clientId), RefreshPhones);
             this.gbDocuments = new System.Windows.Forms.GroupBox();
-            this.ucDocuments = new UcShowAllElements(new DocumentManager(), RefreshDocument);
+            this.ucDocuments = new UcShowAllElements(new DocumentManager(_clientId), RefreshDocument);
             this.cbChildren = new System.Windows.Forms.GroupBox();
-            this.ucChildren = new UcShowAllElements(new ChildrenManager(), RefreshChildren);
+            this.ucChildren = new UcShowAllElements(new ChildrenManager(_clientId), RefreshChildren);
             this.btOk = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
             this.gbGeneral.SuspendLayout();

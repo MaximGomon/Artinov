@@ -81,12 +81,6 @@
   <wsdl:message name="ISkiService_AddSkiCentre_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddSkiCentreResponse" />
   </wsdl:message>
-  <wsdl:message name="ISkiService_AddWarehouseToSkiCentre_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddWarehouseToSkiCentre" />
-  </wsdl:message>
-  <wsdl:message name="ISkiService_AddWarehouseToSkiCentre_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddWarehouseToSkiCentreResponse" />
-  </wsdl:message>
   <wsdl:message name="ISkiService_CheckUser_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckUser" />
   </wsdl:message>
@@ -116,6 +110,54 @@
   </wsdl:message>
   <wsdl:message name="ISkiService_AddWarehouse_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_DeleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClient" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_DeleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetClientPhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientPhone" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetClientPhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientPhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_DeletePhone_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhone" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_DeletePhone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_DeleteChildren_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChildren" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_DeleteChildren_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChildrenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_DeleteDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocument" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_DeleteDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetClientLikeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientLikeName" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetClientLikeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientLikeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetEquipmentTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentTypes" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetEquipmentTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetEqiupmentsByTypeId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEqiupmentsByTypeId" />
+  </wsdl:message>
+  <wsdl:message name="ISkiService_GetEqiupmentsByTypeId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEqiupmentsByTypeIdResponse" />
   </wsdl:message>
   <wsdl:portType name="ISkiService">
     <wsdl:operation name="GetCenters">
@@ -166,10 +208,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/AddSkiCentre" message="tns:ISkiService_AddSkiCentre_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/AddSkiCentreResponse" message="tns:ISkiService_AddSkiCentre_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddWarehouseToSkiCentre">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/AddWarehouseToSkiCentre" message="tns:ISkiService_AddWarehouseToSkiCentre_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/AddWarehouseToSkiCentreResponse" message="tns:ISkiService_AddWarehouseToSkiCentre_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="CheckUser">
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/CheckUser" message="tns:ISkiService_CheckUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/CheckUserResponse" message="tns:ISkiService_CheckUser_OutputMessage" />
@@ -189,6 +227,38 @@
     <wsdl:operation name="AddWarehouse">
       <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/AddWarehouse" message="tns:ISkiService_AddWarehouse_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/AddWarehouseResponse" message="tns:ISkiService_AddWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/DeleteClient" message="tns:ISkiService_DeleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/DeleteClientResponse" message="tns:ISkiService_DeleteClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientPhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetClientPhone" message="tns:ISkiService_GetClientPhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetClientPhoneResponse" message="tns:ISkiService_GetClientPhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhone">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/DeletePhone" message="tns:ISkiService_DeletePhone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/DeletePhoneResponse" message="tns:ISkiService_DeletePhone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChildren">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/DeleteChildren" message="tns:ISkiService_DeleteChildren_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/DeleteChildrenResponse" message="tns:ISkiService_DeleteChildren_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/DeleteDocument" message="tns:ISkiService_DeleteDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/DeleteDocumentResponse" message="tns:ISkiService_DeleteDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientLikeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetClientLikeName" message="tns:ISkiService_GetClientLikeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetClientLikeNameResponse" message="tns:ISkiService_GetClientLikeName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetEquipmentTypes" message="tns:ISkiService_GetEquipmentTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetEquipmentTypesResponse" message="tns:ISkiService_GetEquipmentTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEqiupmentsByTypeId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISkiService/GetEqiupmentsByTypeId" message="tns:ISkiService_GetEqiupmentsByTypeId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISkiService/GetEqiupmentsByTypeIdResponse" message="tns:ISkiService_GetEqiupmentsByTypeId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISkiService" type="tns:ISkiService">
@@ -301,15 +371,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddWarehouseToSkiCentre">
-      <soap:operation soapAction="http://tempuri.org/ISkiService/AddWarehouseToSkiCentre" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="CheckUser">
       <soap:operation soapAction="http://tempuri.org/ISkiService/CheckUser" style="document" />
       <wsdl:input>
@@ -348,6 +409,78 @@
     </wsdl:operation>
     <wsdl:operation name="AddWarehouse">
       <soap:operation soapAction="http://tempuri.org/ISkiService/AddWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/DeleteClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientPhone">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/GetClientPhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePhone">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/DeletePhone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChildren">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/DeleteChildren" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDocument">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/DeleteDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientLikeName">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/GetClientLikeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentTypes">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/GetEquipmentTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEqiupmentsByTypeId">
+      <soap:operation soapAction="http://tempuri.org/ISkiService/GetEqiupmentsByTypeId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

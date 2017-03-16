@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.UI.WebControls;
 using Artinov.StageOne.DataAccess;
 using Artinov.StageOne.DbEntity;
 using Artinov.StageOne.Logic;
@@ -40,7 +41,7 @@ namespace Artinov.StageOne.SkiService
 
         public List<Order> GetOrders(int count = 20, int skip = 0)
         {
-            return _orderLogic.GetAll().Skip(skip).Take(count).ToList();
+            return _orderLogic.GetAll().OrderBy(x => x.CreateDate).Skip(skip).Take(count).ToList();
         }
 
         public List<Order> GetOrdersByPeriod(DateTime stardDate, DateTime endDate)
@@ -106,6 +107,55 @@ namespace Artinov.StageOne.SkiService
             {
                 Name = name
             });
+        }
+
+        public void DeleteClient(Guid clientId)
+        {
+            _skiLogic.Client.DeleteClient(clientId);
+        }
+
+        public List<Phone> GetClientPhone(Guid clientId)
+        {
+            return _skiLogic.Client.GetClientPhones(clientId);
+        }
+
+        public void DeletePhone(Guid phoneId)
+        {
+            _skiLogic.Client.DeletePhone(phoneId);
+        }
+
+        public void DeleteChildren(Guid childId)
+        {
+            _skiLogic.Client.DeleteChildren(childId);
+        }
+
+        public void DeleteDocument(Guid documentId)
+        {
+            _skiLogic.Client.DeleteDocument(documentId);
+        }
+
+        public List<ClientModel> GetClientLikeName(string name)
+        {
+            var clients = _skiLogic.Client.Get(x => x.Name.Contains(name));
+            return clients.Select(w => new ClientModel
+            {
+                Name = w.Name,
+                Sex = w.Sex.ToString(),
+                Id = w.Id,
+                Age = w.Age.ToString()
+            }).ToList();
+        }
+
+        public List<EquipmentType> GetEquipmentTypes()
+        {
+            var equipmentLogic = new BaseBusinessLogic<EquipmentType, BaseRepository<EquipmentType>>();
+            return equipmentLogic.GetAll().ToList();
+        }
+
+        public List<EquipmentModel> GetEqiupmentsByTypeId(Guid typeId)
+        {
+            //_skiLogic.GetFreeEquipment()
+            throw new NotImplementedException();
         }
     }
 }

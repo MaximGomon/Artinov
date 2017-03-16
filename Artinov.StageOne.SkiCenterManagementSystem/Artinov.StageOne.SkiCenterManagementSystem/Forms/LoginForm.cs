@@ -11,7 +11,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             InitializeComponent();
         }
 
-        public SkiCenter GetSelected => (SkiCenter) cbSkiCentres.SelectedItem;
+        public SkiServiceReference.SkiCenter GetSelected => (SkiServiceReference.SkiCenter)cbSkiCentres.SelectedItem;
 
         private void btLogin_Click(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
         {
             using (var client = new SkiServiceClient())
             {
-                SkiCenter[] centers = client.GetCenters();
+                SkiServiceReference.SkiCenter[] centers = client.GetCenters();
                 cbSkiCentres.Items.AddRange(centers);
                 if (cbSkiCentres.Items.Count > 0)
                     cbSkiCentres.SelectedIndex = 0;
@@ -54,3 +54,4 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference
     }
 
 }
+

@@ -1,4 +1,6 @@
-﻿using Artinov.StageOne.SkiCenterManagementSystem.Helpers;
+﻿using System.Windows.Forms;
+using Artinov.StageOne.SkiCenterManagementSystem.Helpers;
+using Artinov.StageOne.SkiCenterManagementSystem.Managers;
 
 namespace Artinov.StageOne.SkiCenterManagementSystem
 {
@@ -116,6 +118,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             this.cbSex.Name = "cbSex";
             this.cbSex.Size = new System.Drawing.Size(97, 21);
             this.cbSex.TabIndex = 3;
+            this.cbSex.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // label2
             // 

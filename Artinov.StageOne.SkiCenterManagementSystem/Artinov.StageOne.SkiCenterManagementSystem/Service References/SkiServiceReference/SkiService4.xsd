@@ -16,4 +16,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ClientModel" nillable="true" type="tns:ClientModel" />
+  <xs:complexType name="ArrayOfEquipmentModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquipmentModel" nillable="true" type="tns:EquipmentModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipmentModel" nillable="true" type="tns:ArrayOfEquipmentModel" />
+  <xs:complexType name="EquipmentModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EquipmentModel" nillable="true" type="tns:EquipmentModel" />
 </xs:schema>

@@ -39,6 +39,12 @@ namespace Artinov.StageOne.Logic
             return client?.Documents.ToList();
         }
 
+        public List<Phone> GetClientPhones(Guid clientId)
+        {
+            var client = Repository.GetById(clientId);
+            return client?.Phones.ToList();
+        }
+
         public List<WarehouseElement> GetClientRentEquipment(Guid clientId)
         {
             return Repository.GetRentEqipmentsByClientId(clientId);
@@ -46,7 +52,7 @@ namespace Artinov.StageOne.Logic
 
         public IQueryable<BigClient> GetClients()
         {
-            return Repository.GetAll();
+            return Repository.GetAllNotDeleted();
         }
 
         public void AddPhone(Guid clientId, string phone)
@@ -57,6 +63,37 @@ namespace Artinov.StageOne.Logic
                 Name = phone
             });
             Repository.Update(client);
+        }
+
+        public void DeleteClient(Guid clientId)
+        {
+            var client = Repository.GetById(clientId);
+            client.IsDeleted = true;
+            Repository.Update(client);
+        }
+
+        public void DeleteChildren(Guid childrenId)
+        {
+            var logic = new BaseBusinessLogic<LittleClient, BaseRepository<LittleClient>>();
+            var child = logic.GetById(childrenId);
+            child.IsDeleted = true;
+            logic.Update(child);
+        }
+
+        public void DeleteDocument(Guid documentId)
+        {
+            var logic = new BaseBusinessLogic<Document, BaseRepository<Document>>();
+            var document = logic.GetById(documentId);
+            document.IsDeleted = true;
+            logic.Update(document);
+        }
+
+        public void DeletePhone(Guid phoneId)
+        {
+            var logic = new BaseBusinessLogic<Phone, BaseRepository<Phone>>();
+            var phone = logic.GetById(phoneId);
+            phone.IsDeleted = true;
+            logic.Update(phone);
         }
     }
 }

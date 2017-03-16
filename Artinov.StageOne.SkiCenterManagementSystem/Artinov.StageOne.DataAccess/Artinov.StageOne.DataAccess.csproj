@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201703151342539_SomeChanges.Designer.cs">
       <DependentUpon>201703151342539_SomeChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703161442250_ChangeEntityForRentTime.cs" />
+    <Compile Include="Migrations\201703161442250_ChangeEntityForRentTime.Designer.cs">
+      <DependentUpon>201703161442250_ChangeEntityForRentTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703151342539_SomeChanges.resx">
       <DependentUpon>201703151342539_SomeChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161442250_ChangeEntityForRentTime.resx">
+      <DependentUpon>201703161442250_ChangeEntityForRentTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

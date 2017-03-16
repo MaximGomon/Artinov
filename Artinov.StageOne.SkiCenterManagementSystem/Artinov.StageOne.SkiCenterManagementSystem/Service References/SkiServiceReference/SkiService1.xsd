@@ -168,19 +168,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddWarehouseToSkiCentre">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="skiCenterId" type="q21:guid" />
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="item" nillable="true" type="q22:Warehouse" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AddWarehouseToSkiCentreResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="CheckUser">
     <xs:complexType>
       <xs:sequence>
@@ -199,7 +186,7 @@
   <xs:element name="AddClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="newClient" nillable="true" type="q23:BigClient" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="newClient" nillable="true" type="q21:BigClient" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -211,8 +198,8 @@
   <xs:element name="AddOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="newOrder" nillable="true" type="q24:Order" />
-        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="skiCentreId" type="q25:guid" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="newOrder" nillable="true" type="q22:Order" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="skiCentreId" type="q23:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -224,9 +211,9 @@
   <xs:element name="AddEquipment">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="newitem" nillable="true" type="q26:Equipment" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="newitem" nillable="true" type="q24:Equipment" />
         <xs:element minOccurs="0" name="count" type="xs:int" />
-        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="warehouseId" type="q27:guid" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="warehouseId" type="q25:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -238,7 +225,7 @@
   <xs:element name="AddWarehouse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="skicentreId" type="q28:guid" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="skicentreId" type="q26:guid" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -246,6 +233,108 @@
   <xs:element name="AddWarehouseResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientId" type="q27:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteClientResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientPhone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="clientId" type="q28:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientPhoneResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="GetClientPhoneResult" nillable="true" type="q29:ArrayOfPhone" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="phoneId" type="q30:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePhoneResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteChildren">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="childId" type="q31:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteChildrenResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="documentId" type="q32:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDocumentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientLikeName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientLikeNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Artinov.StageOne.SkiService" minOccurs="0" name="GetClientLikeNameResult" nillable="true" type="q33:ArrayOfClientModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquipmentTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquipmentTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity" minOccurs="0" name="GetEquipmentTypesResult" nillable="true" type="q34:ArrayOfEquipmentType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEqiupmentsByTypeId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="typeId" type="q35:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEqiupmentsByTypeIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Artinov.StageOne.SkiService" minOccurs="0" name="GetEqiupmentsByTypeIdResult" nillable="true" type="q36:ArrayOfEquipmentModel" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

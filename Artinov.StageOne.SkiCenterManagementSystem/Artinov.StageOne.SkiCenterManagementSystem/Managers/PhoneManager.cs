@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using Artinov.StageOne.SkiCenterManagementSystem.Forms;
 
-namespace Artinov.StageOne.SkiCenterManagementSystem.Helpers
+namespace Artinov.StageOne.SkiCenterManagementSystem.Managers
 {
     public class PhoneManager : IEditeble
     {

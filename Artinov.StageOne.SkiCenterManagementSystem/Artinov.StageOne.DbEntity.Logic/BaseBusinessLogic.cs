@@ -48,9 +48,9 @@ namespace Artinov.StageOne.Logic
             Repository.AddRange(item);
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<TEntity> Get(Expression<Func<TEntity, bool>> predicate)
         {
-            return Repository.Get(predicate).FirstOrDefault();
+            return Repository.Get(predicate);
         }
     }
 }

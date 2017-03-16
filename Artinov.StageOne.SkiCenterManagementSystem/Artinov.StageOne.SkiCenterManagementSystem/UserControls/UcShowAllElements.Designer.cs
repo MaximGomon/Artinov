@@ -1,6 +1,4 @@
-﻿using Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference;
-
-namespace Artinov.StageOne.SkiCenterManagementSystem
+﻿namespace Artinov.StageOne.SkiCenterManagementSystem
 {
     partial class UcShowAllElements
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
+using System.Web.UI.WebControls;
 using Artinov.StageOne.DbEntity;
 
 namespace Artinov.StageOne.SkiService
@@ -58,5 +59,29 @@ namespace Artinov.StageOne.SkiService
 
         [OperationContract]
         void AddWarehouse(Guid skicentreId, string name);
+
+        [OperationContract]
+        void DeleteClient(Guid clientId);
+
+        [OperationContract]
+        List<Phone> GetClientPhone(Guid clientId);
+
+        [OperationContract]
+        void DeletePhone(Guid phoneId);
+
+        [OperationContract]
+        void DeleteChildren(Guid childId);
+
+        [OperationContract]
+        void DeleteDocument(Guid documentId);
+
+        [OperationContract]
+        List<ClientModel> GetClientLikeName(string name);
+
+        [OperationContract]
+        List<EquipmentType> GetEquipmentTypes();
+
+        [OperationContract]
+        List<EquipmentModel> GetEqiupmentsByTypeId(Guid typeId);
     }
 }

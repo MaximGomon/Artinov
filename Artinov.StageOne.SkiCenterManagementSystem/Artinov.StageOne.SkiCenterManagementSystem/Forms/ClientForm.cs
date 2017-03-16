@@ -15,7 +15,9 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             _clientId = Guid.NewGuid();
             InitializeComponent();
             this.ucTelephones.ColumnHeaderStyle = ColumnHeaderStyle.None;
-            FillForm();
+            cbSex.Items.AddRange(Enum.GetValues(typeof(Sex)).Cast<object>().ToArray());
+            cbSex.SelectedIndex = 0;
+
         }
 
         public ClientForm(Guid id)
@@ -23,11 +25,18 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             _clientId = id;
             InitializeComponent();
             this.ucTelephones.ColumnHeaderStyle = ColumnHeaderStyle.None;
+            cbSex.Items.AddRange(Enum.GetValues(typeof(Sex)).Cast<object>().ToArray());
+            cbSex.SelectedIndex = 0;
+
             FillForm();
         }
 
         private void FillForm()
         {
+            var client = ServiceHelper.Client.GetDetailClientInfo(_clientId);
+            tbName.Text = client.Name;
+            nudAge.Value = client.Age;
+            cbSex.SelectedItem = client.Sex;
             //ucDocuments = new UcShowAllElements(new DocumentManager(), RefreshDocument);
             //ucChildren = new UcShowAllElements(new ChildrenManager(), RefreshChildren);
 
@@ -59,6 +68,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
 
         private void btOk_Click(object sender, System.EventArgs e)
         {
+            this.Enabled = false;
             List<LittleClient> children = new List<LittleClient>(); 
             foreach (ListViewItem item in ucChildren.Items)
             {
@@ -97,6 +107,8 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             };
             
             ServiceHelper.Client.AddClient(client);
+            this.DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

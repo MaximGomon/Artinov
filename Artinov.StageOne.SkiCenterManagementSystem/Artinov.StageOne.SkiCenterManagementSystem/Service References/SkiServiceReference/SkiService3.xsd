@@ -52,7 +52,6 @@
           <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OrderElements" nillable="true" type="tns:ArrayOfWarehouseElement" />
-          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="RentTime" type="q1:RentTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -64,7 +63,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Role" type="q2:Roles" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Role" type="q1:Roles" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -75,7 +74,7 @@
       <xs:extension base="tns:NameEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="Age" type="xs:int" />
-          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Sex" type="q3:Sex" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="Sex" type="q2:Sex" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -93,6 +92,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="Count" type="xs:int" />
           <xs:element minOccurs="0" name="Equipment" nillable="true" type="tns:Equipment" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Artinov.StageOne.DbEntity.Enums" minOccurs="0" name="RentTime" type="q3:RentTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -204,4 +204,10 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Phone" nillable="true" type="tns:Phone" />
+  <xs:complexType name="ArrayOfEquipmentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquipmentType" nillable="true" type="tns:EquipmentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipmentType" nillable="true" type="tns:ArrayOfEquipmentType" />
 </xs:schema>

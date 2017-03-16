@@ -11,7 +11,6 @@ namespace Artinov.StageOne.DataAccess
             return base.GetAll()
                 .Include(x => x.Author)
                 .Include(x => x.Client)
-                .Include(x => x.RentTime)
                 .Include(x => x.OrderElements);
         }
 
@@ -20,7 +19,6 @@ namespace Artinov.StageOne.DataAccess
             return base.GetAllNotDeleted()
                 .Include(x => x.Author)
                 .Include(x => x.Client)
-                .Include(x => x.RentTime)
                 .Include(x => x.OrderElements);
         }
 
@@ -28,8 +26,7 @@ namespace Artinov.StageOne.DataAccess
         {
             return base.GetAllDeleted()
                 .Include(x => x.Author)
-                .Include(x => x.Client)
-                .Include(x => x.RentTime);
+                .Include(x => x.Client);
         }
     }
 }

@@ -71,7 +71,7 @@
             this.scMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.scMain.IsSplitterFixed = true;
             this.scMain.Location = new System.Drawing.Point(0, 24);
-            this.scMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.scMain.Margin = new System.Windows.Forms.Padding(2);
             this.scMain.Name = "scMain";
             this.scMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -90,11 +90,11 @@
             // tabControl
             // 
             this.tabControl.Controls.Add(this.tabOrders);
-            this.tabControl.Controls.Add(this.tabWarehouse);
             this.tabControl.Controls.Add(this.tabClients);
+            this.tabControl.Controls.Add(this.tabWarehouse);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(808, 344);
@@ -104,9 +104,9 @@
             // tabOrders
             // 
             this.tabOrders.Location = new System.Drawing.Point(4, 22);
-            this.tabOrders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabOrders.Margin = new System.Windows.Forms.Padding(2);
             this.tabOrders.Name = "tabOrders";
-            this.tabOrders.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabOrders.Padding = new System.Windows.Forms.Padding(2);
             this.tabOrders.Size = new System.Drawing.Size(800, 318);
             this.tabOrders.TabIndex = 0;
             this.tabOrders.Text = "Orders";
@@ -115,9 +115,9 @@
             // tabWarehouse
             // 
             this.tabWarehouse.Location = new System.Drawing.Point(4, 22);
-            this.tabWarehouse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabWarehouse.Margin = new System.Windows.Forms.Padding(2);
             this.tabWarehouse.Name = "tabWarehouse";
-            this.tabWarehouse.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabWarehouse.Padding = new System.Windows.Forms.Padding(2);
             this.tabWarehouse.Size = new System.Drawing.Size(800, 318);
             this.tabWarehouse.TabIndex = 1;
             this.tabWarehouse.Text = "Warehouse";
@@ -126,10 +126,10 @@
             // tabClients
             // 
             this.tabClients.Location = new System.Drawing.Point(4, 22);
-            this.tabClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabClients.Margin = new System.Windows.Forms.Padding(2);
             this.tabClients.Name = "tabClients";
-            this.tabClients.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabClients.Size = new System.Drawing.Size(800, 324);
+            this.tabClients.Padding = new System.Windows.Forms.Padding(2);
+            this.tabClients.Size = new System.Drawing.Size(800, 318);
             this.tabClients.TabIndex = 2;
             this.tabClients.Text = "Clients";
             this.tabClients.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@
             this.Controls.Add(this.scMain);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManagementForm";
             this.Text = "Management";
             this.Load += new System.EventHandler(this.ManagementForm_Load);

@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using Artinov.StageOne.SkiCenterManagementSystem.Helpers;
 
-namespace Artinov.StageOne.SkiCenterManagementSystem.Helpers
+namespace Artinov.StageOne.SkiCenterManagementSystem.Managers
 {
     public class ClientManager : IEditeble
     {
@@ -12,7 +12,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.Helpers
 
         public void Delete(CallbackRefresh refresh, Guid id, IFilleble control)
         {
-            //ServiceHelper.Client.
+            ServiceHelper.Client.DeleteClient(id);
         }
 
         public void Edit(CallbackRefresh refresh, Guid id, IFilleble control)

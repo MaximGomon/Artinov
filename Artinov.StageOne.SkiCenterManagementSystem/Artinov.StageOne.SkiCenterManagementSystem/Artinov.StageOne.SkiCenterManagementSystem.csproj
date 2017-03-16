@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ForComboBoxDisplay.cs" />
     <Compile Include="Forms\ChildrenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,11 +67,11 @@
     <Compile Include="Forms\DocumentForm.Designer.cs">
       <DependentUpon>DocumentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EquipmentForm.cs">
+    <Compile Include="Forms\SelectEquipmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EquipmentForm.Designer.cs">
-      <DependentUpon>EquipmentForm.cs</DependentUpon>
+    <Compile Include="Forms\SelectEquipmentForm.Designer.cs">
+      <DependentUpon>SelectEquipmentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -102,10 +103,14 @@
     <Compile Include="Forms\WarehouseForm.Designer.cs">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\PhoneManager.cs" />
-    <Compile Include="Helpers\DocumentManager.cs" />
-    <Compile Include="Helpers\ChildrenManager.cs" />
-    <Compile Include="Helpers\ClientManager.cs" />
+    <Compile Include="Helpers\ClassHelper.cs" />
+    <Compile Include="Managers\EquipmentManager.cs" />
+    <Compile Include="Managers\OrderManager.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Managers\PhoneManager.cs" />
+    <Compile Include="Managers\DocumentManager.cs" />
+    <Compile Include="Managers\ChildrenManager.cs" />
+    <Compile Include="Managers\ClientManager.cs" />
     <Compile Include="Helpers\ServiceHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,11 +130,17 @@
     <EmbeddedResource Include="Forms\ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectEquipmentForm.resx">
+      <DependentUpon>SelectEquipmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -162,7 +173,16 @@
     <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Document.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.EquipmentModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.EquipmentType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.Phone.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\SkiServiceReference\Artinov.StageOne.SkiCenterManagementSystem.SkiServiceReference.SkiCenter.datasource">

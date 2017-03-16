@@ -1,4 +1,4 @@
-﻿namespace Artinov.StageOne.SkiCenterManagementSystem.Forms
+﻿namespace Artinov.StageOne.SkiCenterManagementSystem
 {
     partial class ChildrenForm
     {

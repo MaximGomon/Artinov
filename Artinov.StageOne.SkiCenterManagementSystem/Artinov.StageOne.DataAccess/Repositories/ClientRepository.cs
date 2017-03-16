@@ -17,10 +17,24 @@ namespace Artinov.StageOne.DataAccess
                 .Include(x => x.RentEquipments);
         }
 
+        public override IQueryable<BigClient> GetAllNotDeleted()
+        {
+            return Context.BigClients
+                .Include(x => x.Childs)
+                .Include(x => x.Documents)
+                .Include(x => x.Phones)
+                .Include(x => x.RentEquipments)
+                .Where(x => x.IsDeleted == false 
+                    && x.Childs.All(w => w.IsDeleted == false)
+                    && x.Documents.All(w => w.IsDeleted == false)
+                    && x.Phones.All(w => w.IsDeleted == false)
+                    && x.RentEquipments.All(w => w.IsDeleted == false));
+        }
+
         public List<WarehouseElement> GetRentEqipmentsByClientId(Guid clientId)
         {
             return Context.BigClients
-                .Include(x => x.RentEquipments)
+                .Include(x => x.RentEquipments.Where(w => w.IsDeleted == false))
                 .FirstOrDefault(x => x.Id == clientId)?
                 .RentEquipments
                 .ToList();
@@ -28,7 +42,7 @@ namespace Artinov.StageOne.DataAccess
 
         public override BigClient GetById(Guid id)
         {
-            return GetAll().FirstOrDefault(x => x.Id == id);
+            return GetAllNotDeleted().FirstOrDefault(x => x.Id == id);
         }
     }
 }

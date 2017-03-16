@@ -39,10 +39,12 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
 
         public void FillControl(Dictionary<string, int> columns, string[][] elements)
         {
+            lvContent.Columns.Clear();
             foreach (var columnHeader in columns)
             {
                 lvContent.Columns.Add(columnHeader.Key, columnHeader.Value);
             }
+            lvContent.Items.Clear();
             foreach (var element in elements)
             {
                 lvContent.Items.Add(new ListViewItem(element));

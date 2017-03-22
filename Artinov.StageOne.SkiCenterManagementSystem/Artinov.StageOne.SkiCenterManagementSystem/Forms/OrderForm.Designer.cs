@@ -1,4 +1,6 @@
-﻿namespace Artinov.StageOne.SkiCenterManagementSystem
+﻿using Artinov.StageOne.SkiCenterManagementSystem.Managers;
+
+namespace Artinov.StageOne.SkiCenterManagementSystem
 {
     partial class OrderForm
     {
@@ -38,7 +40,7 @@
             this.lbTotal = new System.Windows.Forms.Label();
             this.btOk = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
-            this.ucEqiupment = new Artinov.StageOne.SkiCenterManagementSystem.UcShowAllElements();
+            this.ucEqiupment = new Artinov.StageOne.SkiCenterManagementSystem.UcShowAllElements(new EquipmentManager(), RefreshEquipments);
             this.gbEquipment.SuspendLayout();
             this.SuspendLayout();
             // 

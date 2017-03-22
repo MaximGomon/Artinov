@@ -6,10 +6,6 @@ namespace Artinov.StageOne.SkiCenterManagementSystem.Managers
 {
     public class ClientManager : IEditeble
     {
-        public ClientManager()
-        {
-        }
-
         public void Delete(CallbackRefresh refresh, Guid id, IFilleble control)
         {
             ServiceHelper.Client.DeleteClient(id);

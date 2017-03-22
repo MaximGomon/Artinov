@@ -8,13 +8,16 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
 {
     public partial class OrderForm : Form
     {
+        private readonly Guid _orderId;
         public OrderForm()
         {
+            _orderId = Guid.NewGuid();
             InitializeComponent();
         }
 
         public OrderForm(Guid orderId)
         {
+            _orderId = orderId;
             InitializeComponent();
         }
         
@@ -45,13 +48,21 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             {
                 cbClient.DataSource = dataSource;
                 cbClient.DroppedDown = true;
-                cbClient.SelectionStart = text.Length;
+                cbClient.SelectionStart = cbClient.Text.Length;
             }
             else
             {
                 cbClient.DroppedDown = false;
                 cbClient.SelectionStart = text.Length;
             }
+        }
+
+        public void RefreshEquipments(IFilleble currentControl)
+        {
+            //var documents = ServiceHelper.Client.Get(_clientId);
+            //Dictionary<string, int> columns = new Dictionary<string, int> { { "Id", 1 }, { "Name", 150 }, { "Number", 100 }, { "Series", 50 } };
+            //var items = documents?.Select(x => new[] { x.Id.ToString(), x.Name, x.Number, x.Series }).ToArray() ?? new string[0][];
+            //currentControl.FillControl(columns, items);
         }
     }
 }

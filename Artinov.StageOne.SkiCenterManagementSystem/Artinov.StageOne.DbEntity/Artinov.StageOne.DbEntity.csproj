@@ -46,6 +46,7 @@
     <Compile Include="DictionaryEntity.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Enums\EquipmentSize.cs" />
+    <Compile Include="Enums\OrderState.cs" />
     <Compile Include="Enums\RentTime.cs" />
     <Compile Include="Enums\Roles.cs" />
     <Compile Include="Enums\Sex.cs" />

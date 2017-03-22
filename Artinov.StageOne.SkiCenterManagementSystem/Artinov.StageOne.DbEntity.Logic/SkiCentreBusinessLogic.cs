@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Artinov.StageOne.DbEntity;
 using Artinov.StageOne.DataAccess;
@@ -10,8 +11,12 @@ namespace Artinov.StageOne.Logic
     {
         private readonly ClientBusinessLogic _clientLogic = new ClientBusinessLogic();
         private readonly WarehouseBusinessLogic _warehouseLogic = new WarehouseBusinessLogic();
+        private readonly OrderBusinessLogic _orderLogic = new OrderBusinessLogic();
+
 
         public ClientBusinessLogic Client => _clientLogic;
+        public OrderBusinessLogic Order => _orderLogic;
+
 
         public List<SkiCenter> GetByName(string name)
         {
@@ -62,6 +67,12 @@ namespace Artinov.StageOne.Logic
             var wareohuse = _warehouseLogic.GetById(warehouseId);
             wareohuse.Equipments.Add(item);
             _warehouseLogic.Update(wareohuse);
+        }
+
+        public void CreateDraftOrder(Guid orderId)
+        {
+            var defaultClient = _clientLogic.Get(x => x.Name == "default").First();
+            _orderLogic.CreateDraftOrder(orderId, defaultClient);
         }
     }
 }

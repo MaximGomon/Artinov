@@ -44,5 +44,15 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
                 parentNode.Nodes.Add(currentNode);
             }
         }
+
+        private void btOk_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tvTypes_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }

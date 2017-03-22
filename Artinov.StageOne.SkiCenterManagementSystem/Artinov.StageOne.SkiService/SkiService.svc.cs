@@ -11,7 +11,6 @@ namespace Artinov.StageOne.SkiService
     public class SkiService : ISkiService
     {
         private readonly SkiCentreBusinessLogic _skiLogic = new SkiCentreBusinessLogic();
-        private readonly OrderBusinessLogic _orderLogic = new OrderBusinessLogic();
 
         public SkiCenter[] GetCenters()
         {
@@ -41,7 +40,7 @@ namespace Artinov.StageOne.SkiService
 
         public List<Order> GetOrders(int count = 20, int skip = 0)
         {
-            return _orderLogic.GetAll().OrderBy(x => x.CreateDate).Skip(skip).Take(count).ToList();
+            return _skiLogic.Order.GetAll().OrderBy(x => x.CreateDate).Skip(skip).Take(count).ToList();
         }
 
         public List<Order> GetOrdersByPeriod(DateTime stardDate, DateTime endDate)
@@ -82,7 +81,7 @@ namespace Artinov.StageOne.SkiService
         public bool CheckUser(string login, string password)
         {
             BaseBusinessLogic<User, BaseRepository<User>> userLogic = new BaseBusinessLogic<User, BaseRepository<User>>();
-            var user = userLogic.Get(x => x.Login == login && x.Password == password);
+            var user = userLogic.Get(x => x.Login == login && x.Password == password).FirstOrDefault();
             return user != null;
         }
 
@@ -156,6 +155,11 @@ namespace Artinov.StageOne.SkiService
         {
             //_skiLogic.GetFreeEquipment()
             throw new NotImplementedException();
+        }
+
+        public void CreateOrderDraft(Guid orderId)
+        {
+            _skiLogic.CreateDraftOrder(orderId);
         }
     }
 }

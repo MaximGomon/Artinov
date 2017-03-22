@@ -83,5 +83,8 @@ namespace Artinov.StageOne.SkiService
 
         [OperationContract]
         List<EquipmentModel> GetEqiupmentsByTypeId(Guid typeId);
+
+        [OperationContract]
+        void CreateOrderDraft(Guid orderId);
     }
 }

@@ -61,6 +61,14 @@
     <Compile Include="Migrations\201703161442250_ChangeEntityForRentTime.Designer.cs">
       <DependentUpon>201703161442250_ChangeEntityForRentTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703161642280_AddStateToOrder.cs" />
+    <Compile Include="Migrations\201703161642280_AddStateToOrder.Designer.cs">
+      <DependentUpon>201703161642280_AddStateToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703161659476_AddDefaultClientAndDocument.cs" />
+    <Compile Include="Migrations\201703161659476_AddDefaultClientAndDocument.Designer.cs">
+      <DependentUpon>201703161659476_AddDefaultClientAndDocument.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
@@ -90,6 +98,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703161442250_ChangeEntityForRentTime.resx">
       <DependentUpon>201703161442250_ChangeEntityForRentTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161642280_AddStateToOrder.resx">
+      <DependentUpon>201703161642280_AddStateToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161659476_AddDefaultClientAndDocument.resx">
+      <DependentUpon>201703161659476_AddDefaultClientAndDocument.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

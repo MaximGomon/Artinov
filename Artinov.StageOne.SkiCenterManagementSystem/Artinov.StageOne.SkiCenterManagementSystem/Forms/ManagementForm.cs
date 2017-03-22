@@ -23,7 +23,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
 
         private void ManagementForm_Load(object sender, EventArgs e)
         {
-#if Release
+//#if Release
             LoginForm login = new LoginForm();
             if (login.ShowDialog() == DialogResult.Cancel)
             {
@@ -31,7 +31,7 @@ namespace Artinov.StageOne.SkiCenterManagementSystem
             }
             var centre = login.GetSelected;
             statusLabel.Text = $"You are logged into {centre.Name} center";
-#endif
+//#endif
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)

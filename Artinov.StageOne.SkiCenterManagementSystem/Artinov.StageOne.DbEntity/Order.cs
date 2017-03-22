@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Artinov.StageOne.DbEntity.Enums;
 
 namespace Artinov.StageOne.DbEntity
 {
@@ -15,6 +16,8 @@ namespace Artinov.StageOne.DbEntity
         public string Number { get; set; }
         [Required]
         public virtual ICollection<WarehouseElement> OrderElements { get; set; }
+        [Required]
+        public OrderState State { get; set; }
         [Required]
         public double Cost { get; set; }
         [Required]
